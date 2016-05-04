@@ -1,0 +1,35 @@
+/*
+a.navbar-brand{padding:2px;}
+a.navbar-brand img{height:100%;width:auto;}
+*/
+
+.navbar-header .navbar-title{
+	text-align:center;
+	margin-top:6px;
+	margin-bottom: 6px;
+	font-size: 24px;
+	min-width: 120px;
+}
+.weui_btn:focus , .weui_btn:visited ,.weui_btn:hover
+{
+	text-decoration: none !important;
+	color: #fff !important;
+}
+
+.weui_cell:focus , .weui_cell:visited ,.weui_cell:hover
+ {
+	 text-decoration: none !important;
+ }
+
+.weui .weui_cells
+{
+	margin:0;
+}
+.navbar-brand
+{
+	padding:5px 5px !important;
+}
+.content-body
+{
+	padding-bottom: 20px;
+}

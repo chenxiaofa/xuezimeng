@@ -1,0 +1,20 @@
+.weui_cells_radio p,.weui_cells p
+{
+	margin:0 !important;
+}
+
+.stage-level
+{
+	padding-left:20px;
+	margin-top:0px;
+	display: none;
+}
+
+.exam-select-stage .weui_cells_access
+{
+	margin-top:0 !important;
+}
+.exam-select-stage .active .weui_cell_ft
+{
+	display: none;
+}

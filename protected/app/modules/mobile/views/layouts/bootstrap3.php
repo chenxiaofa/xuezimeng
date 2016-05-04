@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>学子梦 - 在线测评</title>
+	<title>学子梦</title>
 
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -34,7 +34,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="header-menu">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">关于</a></li>
+					<li><a href="/m/about">关于</a></li>
 				</ul>
 			</div>
 		</div>

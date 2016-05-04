@@ -14,11 +14,11 @@ use app\rbac\permissions\Permission;
 return [
 	'SignUp'=>[
 		'access'=>Permission::ACCESS_TYPE_PUBLIC,
-		'actions'=>['app\modules\api\controllers\AccountController::sign-up']
+		'actions'=>['app\modules\api\controllers\AccountController::sign-up','app\modules\manage\controllers\AccountController::sign-up']
 	],
 	'SignIn'=>[
 		'access'=>Permission::ACCESS_TYPE_PUBLIC,
-		'actions'=>['app\modules\api\controllers\AccountController::sign-in']
+		'actions'=>['app\modules\api\controllers\AccountController::sign-in','app\modules\manage\controllers\AccountController::sign-in']
 	],
 	'SetMenu'=>[
 		'access'=>Permission::ACCESS_TYPE_PUBLIC,

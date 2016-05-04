@@ -14,6 +14,9 @@ use yii\web\ForbiddenHttpException;
 class AccessControl extends ActionFilter
 {
 
+	/** @var callable */
+	public $denyCallback = [];
+
 	/** @var User */
 	public $user = 'user';
 	/** @var RbacManager */
@@ -40,7 +43,11 @@ class AccessControl extends ActionFilter
 
 		if ($this->user->getIsGuest() || !$this->m->canAccess($this->user->identity->role_id,$className,$actionId))
 		{//必须登录
-			throw new ForbiddenHttpException;
+			if (empty($this->denyCallback))
+			{
+				throw new ForbiddenHttpException;
+			}
+			return call_user_func($this->denyCallback,$action);
 		}
 
 		return parent::beforeAction($action);

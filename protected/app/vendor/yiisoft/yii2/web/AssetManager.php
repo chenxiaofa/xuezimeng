@@ -212,7 +212,7 @@ class AssetManager extends Component
         } elseif (!is_writable($this->basePath)) {
             throw new InvalidConfigException("The directory is not writable by the Web process: {$this->basePath}");
         } else {
-            $this->basePath = realpath($this->basePath);
+            $this->basePath = realpath(str_replace('/','\\',$this->basePath));
         }
         $this->baseUrl = rtrim(Yii::getAlias($this->baseUrl), '/');
     }
@@ -448,7 +448,7 @@ class AssetManager extends Component
             return $this->_published[$path];
         }
 
-        if (!is_string($path) || ($src = realpath($path)) === false) {
+        if (!is_string($path) || ($src = realpath(str_replace('/','\\',$path))) === false) {
             throw new InvalidParamException("The file or directory to be published does not exist: $path");
         }
 
@@ -559,7 +559,7 @@ class AssetManager extends Component
         if (isset($this->_published[$path])) {
             return $this->_published[$path][0];
         }
-        if (is_string($path) && ($path = realpath($path)) !== false) {
+        if (is_string($path) && ($path = realpath(str_replace('/','\\',$path))) !== false) {
             return $this->basePath . DIRECTORY_SEPARATOR . $this->hash($path) . (is_file($path) ? DIRECTORY_SEPARATOR . basename($path) : '');
         } else {
             return false;
@@ -580,7 +580,7 @@ class AssetManager extends Component
         if (isset($this->_published[$path])) {
             return $this->_published[$path][1];
         }
-        if (is_string($path) && ($path = realpath($path)) !== false) {
+        if (is_string($path) && ($path = realpath(str_replace('/','\\',$path))) !== false) {
             return $this->baseUrl . '/' . $this->hash($path) . (is_file($path) ? '/' . basename($path) : '');
         } else {
             return false;

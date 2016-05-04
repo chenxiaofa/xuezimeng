@@ -240,15 +240,15 @@
 		window.Api = {
 			'apiSignUp':function(account,password)
 			{
-				return new api('api/account/sign-up','POST',{},{'account':account,'password':password});
+				return new api('/api/account/sign-up','POST',{},{'account':account,'password':password});
 			},
 			'apiSignIn':function(account,password)
 			{
-				return new api('api/account/sign-in','POST',{},{'account':account,'password':password});
+				return new api('/api/account/sign-in','POST',{},{'account':account,'password':password});
 			},
 			'apiExamSave':function(waid,openid)
 			{
-				return new api('api/exam/save','POST',{},{'waid':waid,'openid':openid});
+				return new api('/api/exam/save','POST',{},{'waid':waid,'openid':openid});
 			}
 
 		};

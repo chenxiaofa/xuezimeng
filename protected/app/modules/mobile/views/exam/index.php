@@ -247,13 +247,13 @@ foreach($questions as $q):
 			<div class="weui_cell">
 				<div class="weui_cell_hd"><label class="weui_label">Q Q</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
-					<input class="weui_input" id="qq" type="number" pattern="[0-9]*" placeholder="请输入qq号">
+					<input class="weui_input" id="qq" type="number" pattern="[0-9]*" placeholder="请填写QQ号">
 				</div>
 			</div>
 			<div class="weui_cell">
 				<div class="weui_cell_hd"><label class="weui_label">手机</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
-					<input class="weui_input" id="phone" type="number" pattern="[0-9]*" placeholder="请输入号码">
+					<input class="weui_input" id="phone" type="number" pattern="[0-9]*" placeholder="请填写手机号码">
 				</div>
 			</div>
 

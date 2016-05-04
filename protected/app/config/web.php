@@ -6,10 +6,10 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'Web',
-    'name'=>'学生管理系统',
+    'name'=>'学子梦',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'defaultRoute'=>'web/welcome/index',
+    'defaultRoute'=>'index/index',
     'components' => [
         'session' => [
             'class' => 'yii\web\DbSession',
@@ -89,10 +89,13 @@ $config = [
         'mobile'=>[
             'class'=>'app\modules\mobile\Module',
         ],
+        'manage'=>[
+            'class'=>'app\modules\manage\Module',
+        ],
     ],
 ];
 
-if (true)
+if (false)
 {
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module',

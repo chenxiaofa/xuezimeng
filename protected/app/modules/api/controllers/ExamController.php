@@ -9,6 +9,7 @@
 namespace app\modules\api\controllers;
 
 
+use app\models\ExamFillable;
 use app\models\ExamSession;
 use app\modules\api\validators\ExamSaveValidator;
 
@@ -24,6 +25,17 @@ class ExamController extends ApiController
         $model = new ExamSession();
         $model->setAttributes($vExamSave->getAttributes(),false);
         $model->save();
+
+        foreach($vExamSave->fillable as $eqid=>$content)
+        {
+            $efModel = new ExamFillable();
+            $efModel->esid = $model->id;
+            $efModel->eqid = $eqid;
+            $efModel->content = $content;
+            $efModel->save();
+        }
+
+
         return $model;
     }
 }

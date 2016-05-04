@@ -16,6 +16,11 @@ use Yii;
  * @property integer $stage
  * @property integer $score
  * @property integer $exam_time
+ * @property integer $waid
+ * @property string $qq
+ * @property string $eqoid
+ * @property string $school
+ * @property string $class
  */
 class ExamSession extends \yii\db\ActiveRecord
 {

@@ -24,7 +24,7 @@
 					<p>高三</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" class="weui_check" name="stage-level" id="h3" checked="checked">
+					<input type="radio" class="weui_check" name="stage-level" id="h3" data-stage="12" checked="checked">
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
@@ -34,7 +34,7 @@
 					<p>高二</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" name="stage-level" class="weui_check" id="h2" >
+					<input type="radio" name="stage-level" class="weui_check" id="h2" data-stage="11" >
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
@@ -44,7 +44,7 @@
 					<p>高一</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" name="stage-level" class="weui_check" id="h1" >
+					<input type="radio" name="stage-level" class="weui_check" id="h1"  data-stage="10">
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
@@ -71,7 +71,7 @@
 				<p>初三</p>
 			</div>
 			<div class="weui_cell_ft">
-				<input type="radio" class="weui_check" name="stage-level" id="m3">
+				<input type="radio" class="weui_check" name="stage-level" id="m3" data-stage="9">
 				<span class="weui_icon_checked"></span>
 			</div>
 			</label>
@@ -81,7 +81,7 @@
 					<p>初二</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" name="stage-level" class="weui_check" id="m2" >
+					<input type="radio" name="stage-level" class="weui_check" id="m2"  data-stage="8">
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
@@ -91,7 +91,7 @@
 					<p>初一</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" name="stage-level" class="weui_check" id="m1" >
+					<input type="radio" name="stage-level" class="weui_check" id="m1" data-stage="7">
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
@@ -119,7 +119,7 @@
 					<p>六年级</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" class="weui_check" name="stage-level" id="p6">
+					<input type="radio" class="weui_check" name="stage-level" id="p6" data-stage="6">
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
@@ -129,7 +129,7 @@
 					<p>五年级</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" name="stage-level" class="weui_check" id="p5" >
+					<input type="radio" name="stage-level" class="weui_check" id="p5" data-stage="5" >
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
@@ -182,6 +182,13 @@ foreach($questions as $q):
 					<?php endforeach;?>
 				</div>
 			<?php endif;?>
+			<?php if ($q->type == $q::QUESTION_TYPE_FILL ):?>
+				<div class="weui_cell">
+					<div class="weui_cell_bd weui_cell_primary">
+						<textarea class="weui_textarea fillable-options" data-eqid="<?php echo $q->id;?>" placeholder="<?php echo $q->placeholder;?>" rows="4"></textarea>
+					</div>
+				</div>
+			<?php endif;?>
 		</div>
 	</div>
 <?php endforeach; ?>
@@ -192,6 +199,7 @@ foreach($questions as $q):
 	</div>
 	<div class="panel-body weui">
 		<div class="weui_cells weui_cells_form">
+			<!--姓名-->
 			<div class="weui_cell">
 				<div class="weui_cell_hd"><label class="weui_label">姓名</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
@@ -199,25 +207,42 @@ foreach($questions as $q):
 				</div>
 			</div>
 
-			<div class="weui_cell weui_cell_select weui_select_after">
-				<div class="weui_cell_hd">
-					<label class="weui_label">性别</label>
-				</div>
+			<!--学校-->
+			<div class="weui_cell">
+				<div class="weui_cell_hd"><label class="weui_label">学校</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
-					<select class="weui_select" id="sex" style=" padding-left: 0px;">
-						<option value="1">男</option>
-						<option value="2">女</option>
-						<option value="0">保密</option>
-					</select>
+					<input class="weui_input" id="school" type="text"  placeholder="请填写学校">
 				</div>
 			</div>
 
+			<!--班级-->
 			<div class="weui_cell">
-				<div class="weui_cell_hd"><label class="weui_label">年龄</label></div>
+				<div class="weui_cell_hd"><label class="weui_label">班级</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
-					<input class="weui_input" id="age" type="number" pattern="[0-9]*" placeholder="年龄">
+					<input class="weui_input" id="class" type="text"  placeholder="请填写班级">
 				</div>
 			</div>
+
+
+<!--			<div class="weui_cell weui_cell_select weui_select_after">-->
+<!--				<div class="weui_cell_hd">-->
+<!--					<label class="weui_label">性别</label>-->
+<!--				</div>-->
+<!--				<div class="weui_cell_bd weui_cell_primary">-->
+<!--					<select class="weui_select" id="sex" style=" padding-left: 0px;">-->
+<!--						<option value="1">男</option>-->
+<!--						<option value="2">女</option>-->
+<!--						<option value="0">保密</option>-->
+<!--					</select>-->
+<!--				</div>-->
+<!--			</div>-->
+<!---->
+<!--			<div class="weui_cell">-->
+<!--				<div class="weui_cell_hd"><label class="weui_label">年龄</label></div>-->
+<!--				<div class="weui_cell_bd weui_cell_primary">-->
+<!--					<input class="weui_input" id="age" type="number" pattern="[0-9]*" placeholder="年龄">-->
+<!--				</div>-->
+<!--			</div>-->
 
 			<div class="weui_cell">
 				<div class="weui_cell_hd"><label class="weui_label">Q Q</label></div>
@@ -262,8 +287,16 @@ foreach($questions as $q):
 		<p class="weui_toast_content">提交中</p>
 	</div>
 </div>
-
 <script>
+	function _alert(content,title)
+	{
+		var dlg = $('<div class="weui_dialog_alert" id="dialog" ><div class="weui_mask"></div><div class="weui_dialog"><div class="weui_dialog_hd"><strong class="weui_dialog_title"></strong></div><div class="weui_dialog_bd"><p class="weui_dialog_content"></p></div><div class="weui_dialog_ft"><a href="javascript:;" class="weui_btn_dialog primary">确定</a></div></div></div>');
+		dlg.appendTo('body');
+		dlg.find('.weui_btn_dialog').on('click',function(){dlg.remove();});
+		dlg.find('.weui_dialog_title').html(title);
+		dlg.find('.weui_dialog_content').html(content);
+
+	}
 	function init()
 	{
 		var post = $('#post');
@@ -276,25 +309,15 @@ foreach($questions as $q):
 
 		var getStage = function()
 		{
-			var selected = allStageLevel.filter(':checked').attr('id');
-			var map = {
-				p5:'5',
-				p6:'6',
-				m1:'7',
-				m2:'8',
-				m3:'9',
-				h1:'10',
-				h2:'11',
-				h3:'12'
-			};
-			if (selected in map)
+			var selected = allStageLevel.filter(':checked');
+			if (selected.length)
 			{
-				return map[selected];
+				return selected.attr('data-stage');
 			}
 			return false;
 		};
 
-
+		window.getStage = getStage;
 
 		var last = -1;
 		$('.big-stage').on('click',
@@ -327,17 +350,12 @@ foreach($questions as $q):
 				}
 			}
 		);
-		switch(allStageLevel.filter(':checked').attr('id').match(/^(\w)/)[0])
+
+		switch(allStageLevel.filter(':checked').attr('data-stage').match(/^(\w)/)[0])
 		{
-			case 'p':
-				$('#p').click();
-				break;
-			case 'm':
-				$('#m').click();
-				break;
-			case 'h':
-				$('#h').click();
-				break;
+			case '5':case '6':				$('#p').click();break;
+			case '7':case '8':case '9':	$('#m').click();break;
+			case '10':case '11':case '12':	$('#h').click();break;
 		}
 
 
@@ -347,29 +365,62 @@ foreach($questions as $q):
 		post.on('click',
 			function()
 			{
-				loading.show();
+
 				var api = Api.apiExamSave(waid,openid);
 				var name = $('#name').val();
-				var sex = $('#sex').val();
-				var age = $('#age').val();
+				var school = $('#school').val();
+				var classText = $('#class').val();
 				var phone = $('#phone').val();
+				var fillable = {};
 				var qq = $('#qq').val();
-				api.setCompleteCallback(
-					function()
+				var eqoid = $('.question-options').filter(':checked').toArray().map(function(e){return e.getAttribute('data-qoid')}).join(',');
+
+				$('.fillable-options').each(
+					function(i,e)
 					{
-						window.location.href = '/exam/finished';
+						fillable[e.getAttribute('data-eqid')] = this.value;
 					}
 				);
 
+				api.setCompleteCallback(
+					function()
+					{
+						loading.hide();
+					}
+				);
+				api.setSuccessCallback(
+					function()
+					{
+						window.location.href = '/survey/finished';
+					}
+				);
+				api.setFailedCallback(
+					function()
+					{
+						alert('网络错误,请重试');
+					}
+				);
+				api.setBeforeSendCallback(
+					function()
+					{
+						loading.show();
+					}
+				);
+				if (!qq && !phone)
+				{
+					_alert('请至少留下QQ号码或者手机号码,方便老师跟着你的情况','完善信息');
+					return;
+				}
+
 				api.setPayload('name',name)
 					.setPayload('phone',phone)
-					.setPayload('sex',sex)
-					.setPayload('age',age)
-					.setPayload('stage',getStage()
-						.setPayload('qoid',$('.question-options').filter(':checked').toArray().map(function(e){return e.getAttribute('data-qoid')}).join(','))
+					.setPayload('school',school)
+					.setPayload('class',classText)
+					.setPayload('qq',qq)
+					.setPayload('stage',getStage())
+					.setPayload('fillable',fillable)
+						.setPayload('eqoid',eqoid)
 					.send();
-
-
 			}
 		);
 

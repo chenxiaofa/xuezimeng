@@ -16,10 +16,11 @@
     function init()
     {
         $('#finish').on('click',function(){
-            window.opener=null;
-            window.open('','_self');
-            window.close();
-        })
+            if (typeof WeixinJSBridge !== 'undefined')
+            {
+                WeixinJSBridge.invoke('closeWindow',{},function(res){});
+            }
+        });
     }
     $(init);
 </script>

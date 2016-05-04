@@ -28,7 +28,7 @@ class ExamController extends Controller
 		$this->openid = $session->get('openid');
 		if (!($this->openid))
 		{
-			if (preg_match('/MicroMessenger/i',\Yii::$app->request->userAgent))
+			if (false/*  */ && preg_match('/MicroMessenger/i',\Yii::$app->request->userAgent))
 			{
 				$this->openid = $this->module->wxMgr->authWithSnsapiBase();
 				$this->waid   = $this->module->wxMgr->wxAppModel->id;
@@ -50,10 +50,10 @@ class ExamController extends Controller
 
 	public function actionIndex()
 	{
-		$questions = ExamQuestions::findAll(['status'=>1]);
+		$questions = ExamQuestions::find()->orderBy('order')->where('status = :status',['status'=>1])->all();
 		$getOptions = function($qid)
 		{
-			return ExamQuestionOptions::findAll(['eqid'=>$qid]);
+			return ExamQuestionOptions::find()->orderBy('order')->where('eqid = :eqid',['eqid'=>$qid])->all();
 		};
 
 

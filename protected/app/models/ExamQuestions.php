@@ -14,6 +14,7 @@ use Yii;
  * @property integer $update_time
  * @property integer $status
  * @property integer $order
+ * @property string $placeholder
  */
 class ExamQuestions extends \yii\db\ActiveRecord
 {

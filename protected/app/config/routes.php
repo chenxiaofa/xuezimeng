@@ -24,4 +24,6 @@ return [
 	//移动端
 	'GET exam'=>'mobile/exam/index',
 	'GET exam/finished'=>'mobile/exam/finished',
+	'GET survey'=>'mobile/exam/index',
+	'GET survey/finished'=>'mobile/exam/finished',
 ];

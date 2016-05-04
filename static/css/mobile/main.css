@@ -33,3 +33,7 @@ a.navbar-brand img{height:100%;width:auto;}
 {
 	padding-bottom: 20px;
 }
+.panel-body
+{
+	padding:0;
+}

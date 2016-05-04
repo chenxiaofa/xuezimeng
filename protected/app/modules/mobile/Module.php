@@ -15,7 +15,7 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-        $this->wxMgr = WeixinManager::getInstance(['wxAppModel'=>WxApp::findOne(['id'=>2])]);
+        //$this->wxMgr = WeixinManager::getInstance(['wxAppModel'=>WxApp::findOne(['id'=>3])]);
         // custom initialization code goes here 
     }
 }

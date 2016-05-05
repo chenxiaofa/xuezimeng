@@ -34,8 +34,11 @@ return [
 	//移动端
 	'GET m'=>'mobile/index/index',
 	'GET m/about'=>'mobile/index/about',
-	'GET exam'=>'mobile/exam/index',
+	'GET exam'=>'mobile/exam/welcome',
+	'GET exam/start'=>'mobile/exam/index',
 	'GET exam/finished'=>'mobile/exam/finished',
-	'GET survey'=>'mobile/exam/index',
+
+	'GET survey'=>'mobile/exam/welcome',
+	'GET survey/start'=>'mobile/exam/index',
 	'GET survey/finished'=>'mobile/exam/finished',
 ];

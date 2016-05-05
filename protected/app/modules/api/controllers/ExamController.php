@@ -26,13 +26,16 @@ class ExamController extends ApiController
         $model->setAttributes($vExamSave->getAttributes(),false);
         $model->save();
 
-        foreach($vExamSave->fillable as $eqid=>$content)
+        if (!empty($vExamSave->fillable))
         {
-            $efModel = new ExamFillable();
-            $efModel->esid = $model->id;
-            $efModel->eqid = $eqid;
-            $efModel->content = $content;
-            $efModel->save();
+            foreach($vExamSave->fillable as $eqid=>$content)
+            {
+                $efModel = new ExamFillable();
+                $efModel->esid = $model->id;
+                $efModel->eqid = $eqid;
+                $efModel->content = $content;
+                $efModel->save();
+            }
         }
 
 

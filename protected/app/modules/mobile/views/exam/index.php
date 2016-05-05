@@ -1,56 +1,11 @@
 <link rel="stylesheet" href="/static/css/mobile/exam.css">
 
-<div class="panel panel-default">
+
+<div class="panel panel-default steps" data-step="1">
 	<div class="panel-heading">
-		<h3 class="panel-title">请选择你所处阶段?</h3>
+		<h3 class="panel-title">1.你现在读几年级？</h3>
 	</div>
 	<div class="panel-body weui exam-select-stage">
-
-		<div class="weui_cells weui_cells_access active">
-			<a class="weui_cell big-stage" id="h" href="javascript:;">
-				<div class="weui_cell_bd weui_cell_primary">
-					<p>高中</p>
-				</div>
-				<div class="weui_cell_ft">
-				</div>
-			</a>
-		</div>
-
-
-		<!-- 高中 -->
-		<div class="weui_cells weui_cells_radio stage-level high-level" style="display: block;" >
-			<label class="weui_cell weui_check_label" for="h3">
-				<div class="weui_cell_bd weui_cell_primary">
-					<p>高三</p>
-				</div>
-				<div class="weui_cell_ft">
-					<input type="radio" class="weui_check" name="stage-level" id="h3" data-stage="12" checked="checked">
-					<span class="weui_icon_checked"></span>
-				</div>
-			</label>
-			<label class="weui_cell weui_check_label" for="h2">
-
-				<div class="weui_cell_bd weui_cell_primary">
-					<p>高二</p>
-				</div>
-				<div class="weui_cell_ft">
-					<input type="radio" name="stage-level" class="weui_check" id="h2" data-stage="11" >
-					<span class="weui_icon_checked"></span>
-				</div>
-			</label>
-			<label class="weui_cell weui_check_label" for="h1">
-
-				<div class="weui_cell_bd weui_cell_primary">
-					<p>高一</p>
-				</div>
-				<div class="weui_cell_ft">
-					<input type="radio" name="stage-level" class="weui_check" id="h1"  data-stage="10">
-					<span class="weui_icon_checked"></span>
-				</div>
-			</label>
-		</div>
-
-
 
 
 		<div class="weui_cells weui_cells_access">
@@ -65,15 +20,16 @@
 
 
 		<!-- 初中 -->
-		<div class="weui_cells weui_cells_radio stage-level middle-level" style="" >
-			<label class="weui_cell weui_check_label" for="m3"">
-			<div class="weui_cell_bd weui_cell_primary">
-				<p>初三</p>
-			</div>
-			<div class="weui_cell_ft">
-				<input type="radio" class="weui_check" name="stage-level" id="m3" data-stage="9">
-				<span class="weui_icon_checked"></span>
-			</div>
+		<div class="weui_cells weui_cells_radio stage-level middle-level"  >
+			<label class="weui_cell weui_check_label" for="m1">
+
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>初一</p>
+				</div>
+				<div class="weui_cell_ft">
+					<input type="radio" name="stage-level" class="weui_check" id="m1" data-stage="7" >
+					<span class="weui_icon_checked"></span>
+				</div>
 			</label>
 			<label class="weui_cell weui_check_label" for="m2">
 
@@ -85,17 +41,19 @@
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
-			<label class="weui_cell weui_check_label" for="m1">
-
+			<label class="weui_cell weui_check_label" for="m3"">
 				<div class="weui_cell_bd weui_cell_primary">
-					<p>初一</p>
+					<p>初三</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" name="stage-level" class="weui_check" id="m1" data-stage="7">
+					<input type="radio" class="weui_check" name="stage-level" id="m3" data-stage="9">
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
 		</div>
+
+
+
 
 
 
@@ -114,12 +72,13 @@
 
 		<!-- 小学 -->
 		<div class="weui_cells weui_cells_radio stage-level primary-level" style="" >
-			<label class="weui_cell weui_check_label" for="p6">
+			<label class="weui_cell weui_check_label" for="p4">
+
 				<div class="weui_cell_bd weui_cell_primary">
-					<p>六年级</p>
+					<p>四年级</p>
 				</div>
 				<div class="weui_cell_ft">
-					<input type="radio" class="weui_check" name="stage-level" id="p6" data-stage="6">
+					<input type="radio" name="stage-level" class="weui_check" id="p4" data-stage="4" >
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
@@ -133,7 +92,53 @@
 					<span class="weui_icon_checked"></span>
 				</div>
 			</label>
+			<label class="weui_cell weui_check_label" for="p6">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>六年级</p>
+				</div>
+				<div class="weui_cell_ft">
+					<input type="radio" class="weui_check" name="stage-level" id="p6" data-stage="6">
+					<span class="weui_icon_checked"></span>
+				</div>
+			</label>
+			<label class="weui_cell weui_check_label" for="p3">
+
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>1-3年级</p>
+				</div>
+				<div class="weui_cell_ft">
+					<input type="radio" name="stage-level" class="weui_check" id="p3" data-stage="3" >
+					<span class="weui_icon_checked"></span>
+				</div>
+			</label>
 		</div>
+
+
+
+
+<!--		<div class="weui_cells weui_cells_access ">-->
+<!--			<a class="weui_cell big-stage" id="h" href="javascript:;">-->
+<!--				<div class="weui_cell_bd weui_cell_primary">-->
+<!--					<p>高中</p>-->
+<!--				</div>-->
+<!--				<div class="weui_cell_ft">-->
+<!--				</div>-->
+<!--			</a>-->
+<!--		</div>-->
+		<!-- 高中 -->
+		<div class="weui_cells weui_cells_radio " >
+			<label class="weui_cell weui_check_label" for="h3">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p style=" font-weight: normal;">高中</p>
+				</div>
+				<div class="weui_cell_ft">
+					<input type="radio" class="weui_check" name="stage-level" id="h3" data-stage="12" >
+					<span class="weui_icon_checked"></span>
+				</div>
+			</label>
+		</div>
+
+
 	</div>
 
 </div>
@@ -144,12 +149,14 @@
 /** @var  callable $getOptions */
 /** @var  \app\models\ExamQuestions $q */
 /** @var  \app\models\ExamQuestionOptions $op */
+$step = 1;
 foreach($questions as $q):
 	$options = call_user_func($getOptions,$q->id);
+	$step++;
 	?>
-	<div class="panel panel-default">
+	<div class="panel panel-default steps" style="display: none;" data-step="<?php echo $step?>">
 		<div class="panel-heading">
-			<h3 class="panel-title"><?php echo $q->question?></h3>
+			<img class="go_back_btn" src="/static/images/icon_back_n.png"><h3 class="panel-title" style="display: inline;"><?php echo $step?>.<?php echo $q->question?>(可多选)</h3>
 		</div>
 		<div class="panel-body weui">
 			<?php if ($q->type == $q::QUESTION_TYPE_MULTIPLE_SELECT ):?>
@@ -193,15 +200,15 @@ foreach($questions as $q):
 	</div>
 <?php endforeach; ?>
 
-<div class="panel panel-default">
+<div class="panel panel-default steps" style="display: none;" data-step="<?php echo ++$step?>">
 	<div class="panel-heading">
-		<h3 class="panel-title">你的联系方式</h3>
+		<img class="go_back_btn" src="/static/images/icon_back_n.png"><h3 class="panel-title">你的联系方式</h3>
 	</div>
 	<div class="panel-body weui">
 		<div class="weui_cells weui_cells_form">
 			<!--姓名-->
 			<div class="weui_cell">
-				<div class="weui_cell_hd"><label class="weui_label">姓名</label></div>
+				<div class="weui_cell_hd"><label class="weui_label" style="margin-bottom: 0;width:5em;text-align: right;">姓&nbsp;&nbsp;&nbsp;&nbsp;名</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
 					<input class="weui_input" id="name" type="text"  placeholder="请输入姓名">
 				</div>
@@ -209,19 +216,19 @@ foreach($questions as $q):
 
 			<!--学校-->
 			<div class="weui_cell">
-				<div class="weui_cell_hd"><label class="weui_label">学校</label></div>
+				<div class="weui_cell_hd"><label class="weui_label" style="margin-bottom: 0;width:5em;text-align: right;">学&nbsp;&nbsp;&nbsp;&nbsp;校</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
 					<input class="weui_input" id="school" type="text"  placeholder="请填写学校">
 				</div>
 			</div>
 
 			<!--班级-->
-			<div class="weui_cell">
-				<div class="weui_cell_hd"><label class="weui_label">班级</label></div>
-				<div class="weui_cell_bd weui_cell_primary">
-					<input class="weui_input" id="class" type="text"  placeholder="请填写班级">
-				</div>
-			</div>
+<!--			<div class="weui_cell">-->
+<!--				<div class="weui_cell_hd"><label class="weui_label">班级</label></div>-->
+<!--				<div class="weui_cell_bd weui_cell_primary">-->
+<!--					<input class="weui_input" id="class" type="text"  placeholder="请填写班级">-->
+<!--				</div>-->
+<!--			</div>-->
 
 
 <!--			<div class="weui_cell weui_cell_select weui_select_after">-->
@@ -236,7 +243,7 @@ foreach($questions as $q):
 <!--					</select>-->
 <!--				</div>-->
 <!--			</div>-->
-<!---->
+
 <!--			<div class="weui_cell">-->
 <!--				<div class="weui_cell_hd"><label class="weui_label">年龄</label></div>-->
 <!--				<div class="weui_cell_bd weui_cell_primary">-->
@@ -245,13 +252,13 @@ foreach($questions as $q):
 <!--			</div>-->
 
 			<div class="weui_cell">
-				<div class="weui_cell_hd"><label class="weui_label">Q Q</label></div>
+				<div class="weui_cell_hd"><label class="weui_label" style="margin-bottom: 0;width:5em;text-align: right;">QQ、微信</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
-					<input class="weui_input" id="qq" type="number" pattern="[0-9]*" placeholder="请填写QQ号">
+					<input class="weui_input" id="qq" type="number" placeholder="请填写QQ或微信号">
 				</div>
 			</div>
 			<div class="weui_cell">
-				<div class="weui_cell_hd"><label class="weui_label">手机</label></div>
+				<div class="weui_cell_hd"><label class="weui_label" style="margin-bottom: 0;width:5em;text-align: right;">联系方式</label></div>
 				<div class="weui_cell_bd weui_cell_primary">
 					<input class="weui_input" id="phone" type="number" pattern="[0-9]*" placeholder="请填写手机号码">
 				</div>
@@ -263,8 +270,12 @@ foreach($questions as $q):
 </div>
 
 
-<div class="weui">
-	<a href="javascript:;" class="weui_btn weui_btn_primary" id="post">提交</a>
+<div class="weui btn-container" >
+	<a href="javascript:;" class="weui_btn weui_btn_primary" id="next">下一步</a>
+</div>
+
+<div class="weui btn-container" >
+	<a href="javascript:;" class="weui_btn weui_btn_primary" style="display: none;" id="post">提交</a>
 </div>
 
 <div id="loading-toast" class="weui_loading_toast" style="display:none;">
@@ -300,12 +311,44 @@ foreach($questions as $q):
 	function init()
 	{
 		var post = $('#post');
+		var next = $('#next');
+		var prev = $('.go_back_btn');
 		var allStageLevel = $('[name="stage-level"]');
 		var loading = $('#loading-toast');
 		var complete = $('#complete-toast');
 		var waid = '<?php echo $waid ?>';
 		var openid = '<?php echo $openid ?>';
-
+		var currStep = 0;
+		var lastStep = parseInt('<?php echo $step;?>',10);
+		prev.on('click',
+			function()
+			{
+				currStep--;
+				$('.steps').hide().filter('[data-step="%step%"]'.replace('%step%',currStep)).show();
+				next.show();
+				post.hide();
+			}
+		);
+		next.on('click',
+			function()
+			{
+				if (currStep == 1)
+				{
+					if (getStage() === false)
+					{
+						_alert('请告诉我们你读几年级','完善信息');
+						return;
+					}
+				}
+				currStep++;
+				$('.steps').hide().filter('[data-step="%step%"]'.replace('%step%',currStep)).show();
+				if (currStep == lastStep)
+				{
+					next.hide();
+					post.show();
+				}
+			}
+		).trigger('click');
 
 		var getStage = function()
 		{
@@ -320,7 +363,7 @@ foreach($questions as $q):
 		window.getStage = getStage;
 
 		var last = -1;
-		$('.big-stage').on('click',
+		$('.big-stage,#h3').on('click',
 			function()
 			{
 				var now = this.getAttribute('id');
@@ -337,21 +380,21 @@ foreach($questions as $q):
 				{
 					case 'p':
 						stages.filter('.primary-level').show();
-						allStageLevel.filter('#p6')[0].checked=true;
+						allStageLevel.filter('#p4')[0].checked=true;
 						break;
 					case 'm':
 						stages.filter('.middle-level').show();
-						allStageLevel.filter('#m3')[0].checked=true;
+						allStageLevel.filter('#m1')[0].checked=true;
 						break;
-					case 'h':
+					case 'h3':
 						stages.filter('.high-level').show();
 						allStageLevel.filter('#h3')[0].checked=true;
 						break;
 				}
 			}
 		);
-
-		switch(allStageLevel.filter(':checked').attr('data-stage').match(/^(\w)/)[0])
+		var pre = getStage();
+		switch(pre)
 		{
 			case '5':case '6':				$('#p').click();break;
 			case '7':case '8':case '9':	$('#m').click();break;
@@ -408,7 +451,7 @@ foreach($questions as $q):
 				);
 				if (!qq && !phone)
 				{
-					_alert('请至少留下QQ号码或者手机号码,方便老师跟着你的情况','完善信息');
+					_alert('请至少留下QQ号码、微信号或者手机号码,方便老师跟着你的情况','完善信息');
 					return;
 				}
 

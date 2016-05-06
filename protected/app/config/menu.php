@@ -7,17 +7,18 @@
  * Time: 16:59
  */
 return [
-	[
-		'name'=>'面板',
-		'icon'=>'icon-dashboard',
-		'url'=>'/'
-	],
+//	[
+//		'name'=>'面板',
+//		'icon'=>'icon-dashboard',
+//		'url'=>'/'
+//	],
 	[
 		'name'=>'学生管理',
 		'icon'=>'icon-user',
 		'sub_menu'=>
 				[
-					['name'=>'学生列表','url'=>'/student/list'],
+					//['name'=>'学生列表','url'=>'/manage/student/list'],
+					['name'=>'问卷调查','url'=>'/manage/survey/list'],
 				]
 	],
 	[
@@ -25,7 +26,7 @@ return [
 		'icon'=>' icon-comments-alt',
 		'sub_menu'=>
 			[
-				['name'=>'公众号管理','url'=>'/platform/list'],
+				['name'=>'公众号管理','url'=>'/manage/platform/list'],
 				['']
 			]
 	]

@@ -8,14 +8,16 @@
  */
 ?>
 <ul class="nav nav-list">
-	<?php foreach(\Yii::$app->params['menu'] as $menu):
+	<?php
+
+	foreach(\Yii::$app->params['menu'] as $menu):
 		$text = array_key_exists('name',$menu)?$menu['name']:'';
 		$icon = array_key_exists('icon',$menu)?$menu['icon']:'';
 		$url = array_key_exists('url',$menu)?$menu['url']:'javascript:void(0);';
 		$subMenu = array_key_exists('sub_menu',$menu)?$menu['sub_menu']:array();
 		$hasMenu = !empty($subMenu);
 	?>
-		<li class="">
+		<li class="open">
 			<a href="<?php echo $url;?>" class="<?php if ($hasMenu)echo 'dropdown-toggle'; ?>">
 				<i class="<?php echo $icon?>"></i>
 				<span class="menu-text"> <?php echo $text?> </span>
@@ -29,7 +31,7 @@
 						$url = array_key_exists('url',$m)?$m['url']:'javascript:void(0);';
 					?>
 						<li>
-							<a href="<?php echo $url;?>">
+							<a  href="<?php echo $url;?>">
 								<i class="<?php echo $icon;?>"></i>
 								<?php echo $text;?>
 							</a>
@@ -40,3 +42,11 @@
 		</li>
 	<?php endforeach;?>
 </ul><!-- /.nav-list -->
+<script>
+	(
+		function()
+		{
+			 
+		}
+	)();
+</script>

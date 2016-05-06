@@ -95,7 +95,7 @@ $config = [
     ],
 ];
 
-if (false)
+if (1)
 {
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module',

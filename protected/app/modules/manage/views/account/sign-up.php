@@ -68,7 +68,7 @@
 				}
 				function onSuccess(data)
 				{
-					window.location.href = '/';
+					window.location.href = '/manage';
 				}
 				function onError(status,payload)
 				{

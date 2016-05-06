@@ -9,13 +9,13 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//cdn.bootcss.com/weui/0.4.0/style/weui.min.css">
-	<link rel="stylesheet" href="/static/css/mobile/main.css">
+	<link rel="stylesheet" href="/static/css/mobile/main.css?20160505">
 	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="/static/js/api.js"></script>
+	<script src="/static/js/api.js?20160505"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default">

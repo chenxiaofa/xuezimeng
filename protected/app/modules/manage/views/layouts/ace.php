@@ -18,13 +18,28 @@
 
 
 	<!-- fonts -->
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+	<!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />-->
 	<!-- ace styles -->
 	<link rel="stylesheet" href="{__STATIC__}/css/ace.min.css" />
 	<link rel="stylesheet" href="{__STATIC__}/css/ace-rtl.min.css" />
 	<link rel="stylesheet" href="{__STATIC__}/css/ace-skins.min.css" />
 	<script src="{__STATIC__}/js/ace-extra.min.js"></script>
+	<!-- basic scripts -->
 
+	<script src="{__STATIC__}/js/jquery-2.0.3.min.js"></script>
+	<script src="{__STATIC__}/js/bootstrap.min.js"></script>
+	<script src="{__STATIC__}/js/typeahead-bs2.min.js"></script>
+	<script src="{__STATIC__}/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="{__STATIC__}/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="{__STATIC__}/js/jquery.slimscroll.min.js"></script>
+	<script src="{__STATIC__}/js/jquery.easy-pie-chart.min.js"></script>
+	<script src="{__STATIC__}/js/jquery.sparkline.min.js"></script>
+	<script src="{__STATIC__}/js/flot/jquery.flot.min.js"></script>
+	<script src="{__STATIC__}/js/flot/jquery.flot.pie.min.js"></script>
+	<script src="{__STATIC__}/js/flot/jquery.flot.resize.min.js"></script>
+	<script src="{__STATIC__}/js/ace-elements.min.js"></script>
+	<script src="{__STATIC__}/js/ace.min.js"></script>
+	<script src="{__STATIC__}/js/api.js"></script>
 
 </head>
 
@@ -44,7 +59,7 @@
 			<ul class="nav ace-nav">
 				<li class="light-blue">
 					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-						<img class="nav-user-photo" src="/static/avatars/user.jpg" alt="Jason's Photo" />
+<!--						<img class="nav-user-photo" src="/static/avatars/user.jpg" alt="Jason's Photo" />-->
 								<span class="user-info">
 									<small>欢迎光临,</small>
 									<?php echo $curUserName;?>
@@ -113,21 +128,7 @@
 	</a>
 </div><!-- /.main-container -->
 
-<!-- basic scripts -->
 
-<script src="{__STATIC__}/js/jquery-2.0.3.min.js"></script>
-<script src="{__STATIC__}/js/bootstrap.min.js"></script>
-<script src="{__STATIC__}/js/typeahead-bs2.min.js"></script>
-<script src="{__STATIC__}/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="{__STATIC__}/js/jquery.ui.touch-punch.min.js"></script>
-<script src="{__STATIC__}/js/jquery.slimscroll.min.js"></script>
-<script src="{__STATIC__}/js/jquery.easy-pie-chart.min.js"></script>
-<script src="{__STATIC__}/js/jquery.sparkline.min.js"></script>
-<script src="{__STATIC__}/js/flot/jquery.flot.min.js"></script>
-<script src="{__STATIC__}/js/flot/jquery.flot.pie.min.js"></script>
-<script src="{__STATIC__}/js/flot/jquery.flot.resize.min.js"></script>
-<script src="{__STATIC__}/js/ace-elements.min.js"></script>
-<script src="{__STATIC__}/js/ace.min.js"></script>
 </body>
 </html>
 

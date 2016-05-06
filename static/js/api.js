@@ -128,8 +128,10 @@
 					'type':option.method,
 					'dataType':'json',
 					'data':option.post_data,
-					'success':function(data)
+					'headers':option.header,
+					'success':function(data,status,xhr)
 					{
+						option.xhr = xhr;
 						option.success.call(option,data);
 					},
 					'error':function(XHR,error,exception)
@@ -144,9 +146,14 @@
 			);
 		};
 
-		var api = function(url,method,urlParam,payload)
+		var api = function(url,method,urlParam,payload,header)
 		{
 			var _self = this;
+			if (header === undefined)
+			{
+				header = {};
+			}
+
 			var onFailed = function(status,code,message){ };
 			var onSuccess = function(data){ };
 			var onComplete = function(){ };
@@ -157,6 +164,8 @@
 				onSuccess = callback;
 				return _self;
 			};
+
+
 
 			this.setFailedCallback = function(callback)
 			{
@@ -188,12 +197,32 @@
 				return _self;
 			};
 
+			this.setHeader = function(k,v)
+			{
+				header[k] = v;
+				return _self;
+			};
+
 			this.setPayload = function(k,v)
 			{
 				payload[k] = v;
 				return _self;
 			};
+			this.xhr = null;
 
+			/**
+			 * 获取返回Header
+			 * @param type
+             * @returns {*}
+             */
+			this.getHeader = function(type)
+			{
+				if (this.xhr === null)
+				{
+					return null;
+				}
+				return this.xhr.getResponseHeader(type);
+			};
 			this.send = function()
 			{
 				if ( beforeSend.call(_self) === false )
@@ -204,8 +233,10 @@
 					{
 						'url':url,
 						'method':method,
+						'header':header,
 						'success':function(data)
 						{
+							_self.xhr = this.xhr;
 							return onSuccess.call(_self,data);
 						},
 						'error' : function(status , payload)
@@ -236,7 +267,31 @@
 			};
 
 		};
-
+		var restApi = function(url,method,urlParam,payload,header)
+		{
+			var _api = new api(url,method,urlParam,payload,header);
+			var rest = {
+				'getList':function(page,size,success,failed,error)
+				{
+					if (typeof failed === 'function')_api.setFailedCallback(failed);
+					if (typeof error === 'function')_api.setFailedCallback(error);
+					_api.setUrlParam('page',page); 
+					_api.setUrlParam('per-page',size);
+					_api.setSuccessCallback(
+						function(list)
+						{
+							var currPage = _api.getHeader('X-Pagination-Current-Page');
+							var pageCount = _api.getHeader('X-Pagination-Page-Count');
+							var perPage = _api.getHeader('X-Pagination-Per-Page');
+							var totalCount = _api.getHeader('X-Pagination-Total-Count');
+							success.call(_api,list,currPage,perPage,pageCount,totalCount);
+						}
+					);
+					_api.send();
+				}
+			};
+			return rest;
+		};
 		window.Api = {
 			'apiSignUp':function(account,password)
 			{
@@ -249,6 +304,10 @@
 			'apiExamSave':function(waid,openid)
 			{
 				return new api('/api/exam/save','POST',{},{'waid':waid,'openid':openid});
+			},
+			'restApiExamSessionList':function(page,size)
+			{
+				return new restApi('/rest/exam-session/index','GET',{},{},{});
 			}
 
 		};

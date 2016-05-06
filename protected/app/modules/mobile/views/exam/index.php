@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/static/css/mobile/exam.css">
+<link rel="stylesheet" href="/static/css/mobile/exam.css?20160505">
 
 
 <div class="panel panel-default steps" data-step="1">

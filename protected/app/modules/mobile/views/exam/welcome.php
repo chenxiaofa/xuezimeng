@@ -7,7 +7,8 @@
 	<title>学子梦</title>
 	<link rel="stylesheet" href="//cdn.bootcss.com/weui/0.4.0/style/weui.min.css">
 	<style>
-		body {
+		html,body {
+			height:100%;
 			line-height: 1.6;
 			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		}
@@ -20,10 +21,13 @@
 		.h
 		{
 			width:40%;
+			max-width: 200px;
 		}
 		.container
 		{
-			margin-top:35%;
+			position: relative;
+			top:20%;
+			/*margin-top:35%;*/
 		}
 		footer
 		{

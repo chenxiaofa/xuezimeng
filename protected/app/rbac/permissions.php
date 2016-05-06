@@ -33,4 +33,8 @@ return [
 	'access'=>Permission::ACCESS_TYPE_PUBLIC,
 	'actions'=>['app\modules\api\controllers\ExamController::save']
 	],
+	'ExamSessionList'=>[
+		'access'=>Permission::ACCESS_TYPE_PUBLIC,
+		'actions'=>['app\modules\rest\controllers\ExamController::index']
+	],
 ];

@@ -153,6 +153,12 @@
 			{
 				header = {};
 			}
+			this.reset = function()
+			{
+				header = {};
+				urlParam = {};
+				payload = {};
+			};
 
 			var onFailed = function(status,code,message){ };
 			var onSuccess = function(data){ };
@@ -223,8 +229,12 @@
 				}
 				return this.xhr.getResponseHeader(type);
 			};
-			this.send = function()
+			this.send = function(_m)
 			{
+				if (_m)
+				{
+					method = _m;
+				}
 				if ( beforeSend.call(_self) === false )
 				{
 					return;
@@ -267,16 +277,16 @@
 			};
 
 		};
-		var restApi = function(url,method,urlParam,payload,header)
+		var restApi = function(url)
 		{
-			var _api = new api(url,method,urlParam,payload,header);
-			var rest = {
-				'getList':function(page,size,success,failed,error)
+			var _api = new api(url,'',{},{},{});
+			return  {
+				'getList':function(page,size,condition,success,failed,error)
 				{
 					if (typeof failed === 'function')_api.setFailedCallback(failed);
 					if (typeof error === 'function')_api.setFailedCallback(error);
-					_api.setUrlParam('page',page); 
-					_api.setUrlParam('per-page',size);
+					page && _api.setUrlParam('page',page);
+					size && _api.setUrlParam('per-page',size);
 					_api.setSuccessCallback(
 						function(list)
 						{
@@ -284,13 +294,17 @@
 							var pageCount = _api.getHeader('X-Pagination-Page-Count');
 							var perPage = _api.getHeader('X-Pagination-Per-Page');
 							var totalCount = _api.getHeader('X-Pagination-Total-Count');
-							success.call(_api,list,currPage,perPage,pageCount,totalCount);
+							if (typeof success === 'function')
+							{
+								success.call(_api,list,parseInt(currPage,10),parseInt(perPage,10),parseInt(pageCount,10),parseInt(totalCount,10));
+							}
 						}
 					);
-					_api.send();
+					$.each(condition,function(k,v){_api.setUrlParam(k,v)});
+					_api.send('GET');
 				}
 			};
-			return rest;
+			//return rest;
 		};
 		window.Api = {
 			'apiSignUp':function(account,password)
@@ -305,9 +319,9 @@
 			{
 				return new api('/api/exam/save','POST',{},{'waid':waid,'openid':openid});
 			},
-			'restApiExamSessionList':function(page,size)
+			'restApiExamSession':function()
 			{
-				return new restApi('/rest/exam-session/index','GET',{},{},{});
+				return new restApi('/rest/exam-session');
 			}
 
 		};

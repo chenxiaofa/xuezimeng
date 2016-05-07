@@ -28,7 +28,7 @@ class ExamSaveValidator extends ApiParamValidator
 	public function parameterFields()
 	{
 		return [
-			'waid','openid','name','phone','sex','age','stage','eqoid' ,'school','class','fillable'
+			'waid','openid','name','phone','sex','age','stage','eqoid' ,'school','class','fillable','qq'
 		];
 	}
 

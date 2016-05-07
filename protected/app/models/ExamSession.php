@@ -43,6 +43,45 @@ class ExamSession extends \yii\db\ActiveRecord
     }
 
     /**
+     * @return array
+     */
+    public function fields()
+    {
+        $filterFunc = function($field)
+        {
+            return function($model)use($field)
+            {
+                if (!is_null($model->$field))
+                    return $model->$field;
+                return '';
+            };
+        };
+        return [
+            'id',
+            'name'=>$filterFunc('name'),
+            'school'=>$filterFunc('school'),
+            'phone'=>$filterFunc('phone'),
+            'qq'=>$filterFunc('qq'),
+            'exam_time'=>function($model){return date('Y-m-d H:i:s',$model->exam_time);},
+            'options'=>function($model)
+            {
+                $options = [];
+                foreach(explode(',',$model->eqoid) as $eqoid)
+                {
+                    $eqoModel =  ExamQuestionOptions::findById($eqoid);
+                    if (empty($eqoModel)) continue;
+                    
+                    $eqModel = ExamQuestions::findById($eqoModel->eqid);
+                    
+                    $options[$eqModel->question][] = $eqoModel->content;
+                }
+
+                return $options;
+            }
+        ];
+    }
+
+    /**
      * @inheritdoc
      */
     public function attributeLabels()

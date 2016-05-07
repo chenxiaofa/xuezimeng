@@ -7,8 +7,10 @@
 
 namespace app\rest;
 
+use app\models\ExamQuestions;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
+use yii\data\ActiveDataProvider;
 use yii\web\ForbiddenHttpException;
 
 /**
@@ -52,6 +54,24 @@ class ActiveController extends Controller
      */
     public $createScenario = Model::SCENARIO_DEFAULT;
 
+    /**
+     * @param \yii\db\ActiveQuery $query
+     * @return \yii\db\ ActiveQuery
+     */
+    public function addCondition($query)
+    {
+        return $query;
+    }
+
+    public function prepareDataProvider()
+    {
+        /* @var $modelClass \yii\db\ActiveRecord */
+        $modelClass = $this->modelClass;
+
+        return new ActiveDataProvider([
+            'query' => $this->addCondition($modelClass::find())
+        ]);
+    }
 
     /**
      * @inheritdoc
@@ -73,6 +93,7 @@ class ActiveController extends Controller
             'index' => [
                 'class' => 'app\rest\IndexAction',
                 'modelClass' => $this->modelClass,
+                'prepareDataProvider'=>[$this,'prepareDataProvider'],
                 'checkAccess' => [$this, 'checkAccess'],
             ],
             'view' => [

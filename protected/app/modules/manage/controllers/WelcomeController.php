@@ -17,6 +17,7 @@ class WelcomeController extends ApplicationController
 	 */
 	public function actionIndex()
 	{
+		$this->view->header = '控制台';
 		return $this->render('index',[]);
 	}
 }

@@ -51,4 +51,14 @@ class ExamQuestionOptions extends \yii\db\ActiveRecord
             'order' => 'Order',
         ];
     }
+
+    public static function findById($id)
+    {
+        static $cache = [];
+        if (!array_key_exists($id,$cache))
+        {
+            $cache[$id] = static::findOne(['id'=>$id]);
+        }
+        return $cache[$id];
+    }
 }

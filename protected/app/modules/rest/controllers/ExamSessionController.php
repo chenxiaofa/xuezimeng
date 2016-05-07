@@ -9,4 +9,23 @@ namespace app\modules\rest\controllers;
 class ExamSessionController extends \app\rest\ActiveController
 {
     public $modelClass = '\app\models\ExamSession';
+
+    /**
+     * @param \yii\db\ActiveQuery $query
+     * @return \yii\db\ ActiveQuery
+     */
+    public function addCondition($query)
+    {
+        $r = \Yii::$app->request;
+        $where = [];
+        $param = [];
+        if (($status = $r->get('status',false)) !== false)
+        {
+            $query->andWhere('status = :status',[':status'=>$status]);
+        }
+
+        return $query;
+    }
+
+
 }

@@ -1,0 +1,12 @@
+td.f,th.f{
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+td.c,th.c {
+    text-align: center;
+}
+td.r,th.r {
+    text-align: right;
+}

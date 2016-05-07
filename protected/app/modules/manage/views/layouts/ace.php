@@ -11,8 +11,8 @@
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- basic styles -->
-	<link href="{__STATIC__}/css/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="{__STATIC__}/css/font-awesome.min.css" />
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
 
 
 
@@ -20,26 +20,28 @@
 	<!-- fonts -->
 	<!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />-->
 	<!-- ace styles -->
-	<link rel="stylesheet" href="{__STATIC__}/css/ace.min.css" />
-	<link rel="stylesheet" href="{__STATIC__}/css/ace-rtl.min.css" />
-	<link rel="stylesheet" href="{__STATIC__}/css/ace-skins.min.css" />
-	<script src="{__STATIC__}/js/ace-extra.min.js"></script>
+	<link rel="stylesheet" href="/static/css/ace.min.css" />
+	<link rel="stylesheet" href="/static/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="/static/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="/static/css/manage/manage.css" />
+	<script src="/static/js/ace-extra.min.js"></script>
 	<!-- basic scripts -->
 
-	<script src="{__STATIC__}/js/jquery-2.0.3.min.js"></script>
-	<script src="{__STATIC__}/js/bootstrap.min.js"></script>
-	<script src="{__STATIC__}/js/typeahead-bs2.min.js"></script>
-	<script src="{__STATIC__}/js/jquery-ui-1.10.3.custom.min.js"></script>
-	<script src="{__STATIC__}/js/jquery.ui.touch-punch.min.js"></script>
-	<script src="{__STATIC__}/js/jquery.slimscroll.min.js"></script>
-	<script src="{__STATIC__}/js/jquery.easy-pie-chart.min.js"></script>
-	<script src="{__STATIC__}/js/jquery.sparkline.min.js"></script>
-	<script src="{__STATIC__}/js/flot/jquery.flot.min.js"></script>
-	<script src="{__STATIC__}/js/flot/jquery.flot.pie.min.js"></script>
-	<script src="{__STATIC__}/js/flot/jquery.flot.resize.min.js"></script>
-	<script src="{__STATIC__}/js/ace-elements.min.js"></script>
-	<script src="{__STATIC__}/js/ace.min.js"></script>
-	<script src="{__STATIC__}/js/api.js"></script>
+	<script src="/static/js/jquery-2.0.3.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/typeahead-bs2.min.js"></script>
+	<script src="/static/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="/static/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="/static/js/jquery.slimscroll.min.js"></script>
+	<script src="/static/js/jquery.easy-pie-chart.min.js"></script>
+	<script src="/static/js/jquery.sparkline.min.js"></script>
+	<script src="/static/js/flot/jquery.flot.min.js"></script>
+	<script src="/static/js/flot/jquery.flot.pie.min.js"></script>
+	<script src="/static/js/flot/jquery.flot.resize.min.js"></script>
+	<script src="/static/js/ace-elements.min.js"></script>
+	<script src="/static/js/ace.min.js"></script>
+	<script src="/static/js/api.js"></script>
+	<script src="/static/js/manage/util.js"></script>
 
 </head>
 
@@ -103,7 +105,42 @@
 		</a>
 
 		<div class="sidebar" id="sidebar">
-			<?php include 'menu.php';?>
+			<ul class="nav nav-list">
+				<?php
+				foreach($this->menu as $menu):
+					$text = array_key_exists('name',$menu)?$menu['name']:'';
+					$icon = array_key_exists('icon',$menu)?$menu['icon']:'';
+					$url = array_key_exists('url',$menu)?$menu['url']:'javascript:void(0);';
+					$subMenu = array_key_exists('sub_menu',$menu)?$menu['sub_menu']:array();
+					$hasMenu = !empty($subMenu);
+					$isActive = array_key_exists('is_active',$menu);
+					?>
+					<li class="<?php if ($isActive)echo 'active'; ?>">
+						<a href="<?php echo $url;?>" class="<?php if ($hasMenu)echo 'dropdown-toggle'; ?>">
+							<i class="<?php echo $icon?>"></i>
+							<span class="menu-text"> <?php echo $text?> </span>
+							<?php if ($hasMenu && !$isActive): ?><b class="arrow icon-angle-down"></b><?php endif;?>
+						</a>
+						<?php if ($hasMenu): ?>
+							<ul class="submenu">
+								<?php foreach($subMenu as $m):
+									$text = array_key_exists('name',$m)?$m['name']:'';
+									$icon = array_key_exists('icon',$m)?$m['icon']:'';
+									$url = array_key_exists('url',$m)?$m['url']:'javascript:void(0);';
+									$subIsActive = array_key_exists('is_active',$m);
+									?>
+									<li class="<?php if ($subIsActive)echo 'active'; ?>">
+										<a  href="<?php echo $url;?>">
+											<i class="<?php echo $icon;?>"></i>
+											<?php echo $text;?>
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif;?>
+					</li>
+				<?php endforeach;?>
+			</ul><!-- /.nav-list -->
 
 			<div class="sidebar-collapse" id="sidebar-collapse">
 				<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
@@ -111,11 +148,28 @@
 		</div>
 
 		<div class="main-content">
+			<div class="breadcrumbs" id="breadcrumbs" style="display: none;">
+				<ul class="breadcrumb">
+					<li>
+						<i class="icon-home home-icon"></i>
+						<a href="/manage/">首页</a>
+					</li>
+				</ul><!-- .breadcrumb -->
+
+				<div class="nav-search" id="nav-search">
+					<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off">
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+					</form>
+				</div><!-- #nav-search -->
+			</div>
 			<div class="page-content">
 				<div class="page-header">
-					<div class="alter-message">
-
-					</div>
+					<h1>
+						<?php echo $this->header;?>
+					</h1>
 				</div>
 				<?php echo $content; ?>
 			</div><!-- /.page-content -->

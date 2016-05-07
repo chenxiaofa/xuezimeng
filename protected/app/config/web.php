@@ -109,4 +109,12 @@ if (1)
 //    $config['bootstrap'][] = 'debug';
 }
 
+if (preg_match('/^\/manage/',$_SERVER['REQUEST_URI']))
+{
+    $config['components']['view'] = [
+        'class'=>'app\modules\manage\View',
+        'menu'=>include 'menu.php',
+    ];
+}
+
 return $config;

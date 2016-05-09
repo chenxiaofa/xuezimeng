@@ -5,8 +5,9 @@ define('WEIXIN_CATEGORY','WeiXin:');
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+    //'catchAll'=>['/index/maintenance'],
     'id' => 'Web',
-    'name'=>'学子梦',
+    'name'=>'学子梦培训',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute'=>'index/index',
@@ -25,12 +26,9 @@ $config = [
                 'application/json' => 'yii\web\JsonParser',
             ], 
         ],
-//        'cache' => [
-//            'class' => 'yii\caching\FileCache',
-//        ],
         'user' => [
             'identityClass' => 'app\models\Users',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -38,38 +36,36 @@ $config = [
             'enableStrictParsing' => false,
             'rules' => require(__DIR__ . '/routes.php'),
         ],
-//        'errorHandler' => [
-//            'errorAction' => 'site/error',
+//        'log' => [
+//            'targets' => [
+//                [
+//                    'class' => 'yii\log\FileTarget',
+//                    'levels' => ['error'],
+//                    'categories' => ['yii\*'],
+//                    'logFile'=> '@runtime/logs/yii.error.log'
+//                ]
+//,
+//                [
+//                    'class' => 'yii\log\FileTarget',
+//                    'levels' => ['error'],
+//                    'categories' => ['app*'],
+//                    'logFile'=> '@runtime/logs/app.error.log'
+//                ],
+//                [
+//                    'class' => 'yii\log\FileTarget',
+//                    'levels' => [],
+//                    'categories' => ['app*'],
+//                    'logFile'=> '@runtime/logs/app.trace.log'
+//                ],
+//                [
+//                    'class' => 'yii\log\FileTarget',
+//                    'levels' => [],
+//                    'categories' => ['WeiXin*'],
+//                    'logVars'=>[],
+//                    'logFile'=> '@runtime/logs/weixin.log'
+//                ],
+//            ],
 //        ],
-        'log' => [
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error'],
-                    'categories' => ['yii\*'],
-                    'logFile'=> '@runtime/logs/yii.error.log'
-                ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error'],
-                    'categories' => ['app*'],
-                    'logFile'=> '@runtime/logs/app.error.log'
-                ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => [],
-                    'categories' => ['app*'],
-                    'logFile'=> '@runtime/logs/app.trace.log'
-                ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => [],
-                    'categories' => ['WeiXin*'],
-                    'logVars'=>[],
-                    'logFile'=> '@runtime/logs/weixin.log'
-                ],
-            ],
-        ],
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
@@ -80,13 +76,13 @@ $config = [
         'api'=>[
             'class'=>'app\modules\api\Module'
         ],
-        'weixin'=>[
+        'wx'=>[
             'class'=>'app\modules\weixin\Module',
         ],
         'web'=>[
             'class'=>'app\modules\web\Module',
         ],
-        'mobile'=>[
+        'm'=>[
             'class'=>'app\modules\mobile\Module',
         ],
         'manage'=>[
@@ -95,19 +91,19 @@ $config = [
     ],
 ];
 
-if (1)
-{
-    $config['modules']['gii'] = [
-        'class'=>'yii\gii\Module',
-        'allowedIPs' => ['*'],
-    ];
+//if (1)
+//{
+//    $config['modules']['gii'] = [
+//        'class'=>'yii\gii\Module',
+//        'allowedIPs' => ['*'],
+//    ];
 //    $config['modules']['debug'] = [
 //        'class'=>'yii\debug\Module',
 //        'allowedIPs' => ['*'],
 //    ];
-    $config['bootstrap'][] = 'gii';
+//    $config['bootstrap'][] = 'gii';
 //    $config['bootstrap'][] = 'debug';
-}
+//}
 
 if (preg_match('/^\/manage/',$_SERVER['REQUEST_URI']))
 {

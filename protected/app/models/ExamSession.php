@@ -57,7 +57,7 @@ class ExamSession extends \yii\db\ActiveRecord
             };
         };
         return [
-            'id',
+            'id','stage',
             'name'=>$filterFunc('name'),
             'school'=>$filterFunc('school'),
             'phone'=>$filterFunc('phone'),

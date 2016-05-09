@@ -436,7 +436,7 @@ class Session extends Component implements \IteratorAggregate, \ArrayAccess, \Co
      */
     public function getTimeout()
     {
-        return (int) ini_get('session.gc_maxlifetime');
+        return 1440;//(int) ini_get('session.gc_maxlifetime');
     }
 
     /**

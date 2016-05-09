@@ -1,17 +1,20 @@
+<?php
+$appName = \Yii::$app->name;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<title>Account - <?php echo \Yii::$app->params['appName'] ?></title>
+	<meta charset="utf-8"/> 
+	<title>Account - <?php echo $appName ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<link href="{__STATIC__}/css/bootstrap.min.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="{__STATIC__}/css/font-awesome.min.css"/>
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
 
 	<!-- ace styles -->
-	<link rel="stylesheet" href="{__STATIC__}/css/ace.min.css"/>
-	<link rel="stylesheet" href="{__STATIC__}/css/ace-rtl.min.css"/>
-	<script src="{__STATIC__}/js/jquery-2.0.3.min.js"></script>
-	<script src="{__STATIC__}/js/api.js"></script>
+	<link rel="stylesheet" href="/static/css/ace.min.css"/>
+	<link rel="stylesheet" href="/static/css/ace-rtl.min.css"/>
+	<script src="/static/js/jquery-2.0.3.min.js"></script>
+	<script src="/static/js/api.js"></script>
 </head>
 <body class="login-layout">
 <div class="main-container">

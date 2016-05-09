@@ -12,6 +12,10 @@
 return [
 
 
+	//PC端
+	'GET /'=>'web/index/index',
+	'GET /index'=>'web/index/index',
+
 	//微信接口
 	'POST wx/<app_id:\d+>'=>'weixin/index/index',
 	'GET wx/<app_id:\d+>'=>'weixin/index/join',

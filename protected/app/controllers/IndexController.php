@@ -13,4 +13,8 @@ class IndexController extends \yii\web\Controller
     {
         $this->redirect('/m');
     }
+    public function actionMaintenance()
+    {
+        return '正在维护!'.date('Y-m-d H:i:s');
+    }
 }

@@ -14,5 +14,6 @@ return [
 	//PC端
 	'GET /'=>'web/index/index',
 	'GET /index'=>'web/index/index',
-
+	'GET /about'=>'web/index/about',
+	'GET /courses'=>'web/index/courses',
 ];

@@ -18,6 +18,4 @@ else
 {
     $config = require(__DIR__ . '/protected/app/config.web/web.php');
 }
-
-
 (new yii\web\Application($config))->run();

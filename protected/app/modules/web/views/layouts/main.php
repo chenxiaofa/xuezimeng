@@ -70,6 +70,14 @@ $currPage = \Yii::$app->controller->action->id;
         </div>
     </div>
 </footer>
-
+<div class="contact_block">
+    <a class="qq" href="javascript:void(0);"></a>
+    <a class="wx" href="javascript:void(0);">
+        <div class="qrcode">
+            <img src="/static/images/weixin_qrcode.jpg" />
+        </div>
+    </a>
+    <a class="phone" href="javascript:void(0);"></a>
+</div>
 </body>
 </html>

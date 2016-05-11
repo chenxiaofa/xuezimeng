@@ -20,7 +20,10 @@ $config = [
     'modules'=>[
         'web'=>[
             'class'=>'app\modules\web\Module',
-        ]
+        ],
+        'm'=>[
+            'class'=>'app\modules\mobile\Module',
+        ],
     ],
 ];
 

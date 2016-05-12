@@ -2,7 +2,7 @@
 
 namespace app\modules\web;
 
-class Module extends \yii\base\Module
+class Module extends \app\components\Module
 {
     public $controllerNamespace = 'app\modules\web\controllers';
     public $layout = 'main.php';

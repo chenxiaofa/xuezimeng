@@ -2,14 +2,7 @@
 
 namespace app\modules\rest;
 
-class Module extends \yii\base\Module
+class Module extends \app\components\Module
 {
     public $controllerNamespace = 'app\modules\rest\controllers';
-
-    public function init()
-    {
-        parent::init();
-
-        // custom initialization code goes here
-    }
 }

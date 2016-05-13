@@ -7,7 +7,13 @@ $config = [
     'basePath' => dirname(__DIR__),
     'defaultRoute'=>'index/index',
     'components' => [
-
+        'request' => [
+            'cookieValidationKey' => 'web-push-portal',
+            'enableCsrfValidation'=>false,
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -26,5 +32,20 @@ $config = [
         ],
     ],
 ];
+
+
+if (1)
+{
+    $config['modules']['gii'] = [
+        'class'=>'yii\gii\Module',
+        'allowedIPs' => ['*'],
+    ];
+    $config['modules']['debug'] = [
+        'class'=>'yii\debug\Module',
+        'allowedIPs' => ['*'],
+    ];
+    $config['bootstrap'][] = 'gii';
+    $config['bootstrap'][] = 'debug';
+}
 
 return $config;

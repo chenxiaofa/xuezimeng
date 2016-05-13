@@ -5,7 +5,7 @@ namespace app\modules\mobile;
 use app\managers\WeixinManager;
 use app\models\WxApp;
 
-class Module extends \yii\base\Module
+class Module extends \app\components\Module
 {
     public $controllerNamespace = 'app\modules\mobile\controllers';
 

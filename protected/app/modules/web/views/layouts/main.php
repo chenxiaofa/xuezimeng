@@ -70,14 +70,27 @@ $currPage = \Yii::$app->controller->action->id;
         </div>
     </div>
 </footer>
-<div class="contact_block">
-    <a class="qq" href="javascript:void(0);"></a>
-    <a class="wx" href="javascript:void(0);">
+<ul class="contact_block">
+    <li class="qq" href="javascript:void(0);">
+        <div class="online_qq">
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=149714147&site=qq&menu=yes">
+                <img border="0" src="http://wpa.qq.com/pa?p=2:149714147:53" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+            </a>
+        </div>
+        <label>在线客服</label>
+
+    </li>
+    <li class="wx" href="javascript:void(0);">
         <div class="qrcode">
             <img src="/static/images/weixin_qrcode.jpg" />
+            <div class="arrow"></div>
         </div>
-    </a>
-    <a class="phone" href="javascript:void(0);"></a>
-</div>
+
+        <label>官方微信</label>
+    </li>
+    <li class="phone" href="javascript:void(0);">
+        <label>客服电话</label>
+    </li>
+</ul>
 </body>
 </html>

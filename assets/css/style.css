@@ -271,6 +271,17 @@ color: #fff !important;
     right: 0px;
     top: 30%;
 }
+@media (max-width: 768px) {
+	.heading-text h1
+	{
+		font-size: 35px !important;
+	}
+	.heading-text p
+	{
+		/*display: none;*/
+		font-size:12px;
+	}
+}
 .heading-text h1{
     font-size: 45px;
 }
@@ -1031,7 +1042,17 @@ list-style: none;
 	bottom:0;
 	margin-right:10px;
 	margin-bottom: 10px;
+	padding:0;
 }
+
+@media (max-width: 768px)
+{
+	.contact_block {
+		display: none;
+	}
+}
+
+
 .contact_block .qq,
 .contact_block .wx,
 .contact_block .phone
@@ -1042,17 +1063,20 @@ list-style: none;
 	margin-bottom: 5px;
 	background: url(/static/images/concat_block.png) no-repeat;
 	position: relative;
+	cursor: pointer;
 }
 .contact_block .wx
 {
-	background-position: 0 -65px;
-	margin-bottom: 0px;
+	background-position: 0 -130px;
 }
 .contact_block .phone
 {
-	background-position: 0 -130px;
+	background-position: 0 -65px;
+	margin-bottom: 0px;
+
 }
 
+.contact_block .qq .online_qq,
 .contact_block .wx .qrcode
 {
 	width:146px;
@@ -1062,10 +1086,72 @@ list-style: none;
 	right: 100%;
 	bottom:0;
 	position: absolute;
+	margin:5px;
+	display: none;
 
 }
 
+.contact_block .wx:hover .qrcode
+{
+	display: block;
+	-webkit-animation:fadeInRight  .2s ease both;
+	-moz-animation:fadeInRight  .2s ease both;
+}
+
+.contact_block .qq:hover .online_qq
+{
+	display: block;
+	-webkit-animation:fadeInRight  .2s ease both;
+	-moz-animation:fadeInRight  .2s ease both;
+}
+
+
+
+.contact_block label
+{
+	position: absolute;
+	width: 100%;
+	height: auto;
+	bottom: 0;
+	left: 0;
+	color: #fff;
+	font-family: "微软雅黑";
+	font-weight: 100;
+	font-size: 12px;
+	line-height: 24px;
+	text-align: center;
+	cursor: pointer;
+	margin-bottom: 0;
+}
 .contact_block .arrow
 {
-	
+	border-left: 5px solid #ddd;
+	border-right: none;
+	border-top: 5px solid rgba(0,0,0,0);
+	border-bottom: 5px solid rgba(0,0,0,0);
+	width: 0;
+	height: 0;
+}
+
+
+.contact_block .wx .arrow
+{
+	position: absolute;
+	top: 80%;
+	right: -5px;
+	border-left: 5px solid rgb(221,221,221);
+}
+
+
+@-webkit-keyframes fadeInRight{
+	0%{opacity:0;
+		-webkit-transform:translateX(20px)}
+	100%{opacity:1;
+		-webkit-transform:translateX(0)}
+}
+@-moz-keyframes fadeInRight{
+	0%{opacity:0;
+		-moz-transform:translateX(20px)}
+	100%{opacity:1;
+		-moz-transform:translateX(0)}
 }

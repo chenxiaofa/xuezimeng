@@ -32,6 +32,7 @@ $currPage = \Yii::$app->controller->action->id;
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right mainNav">
                 <li class="<?php if ($currPage === 'index') echo "active";?>"><a href="/">首页</a></li>
+                <li class="<?php if ($currPage === 'preferential') echo "active";?>"><a href="/preferential">优惠活动</a></li>
                 <li class="<?php if ($currPage === 'about') echo "active";?>"><a href="/about">关于</a></li>
                 <li class="<?php if ($currPage === 'courses') echo "active";?>"><a href="/courses">课程</a></li>
                 <li class="<?php if ($currPage === 'price') echo "active";?>"><a href="/price">价格</a></li>
@@ -72,12 +73,9 @@ $currPage = \Yii::$app->controller->action->id;
 </footer>
 <ul class="contact_block">
     <li class="qq" href="javascript:void(0);">
-        <div class="online_qq">
-            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=149714147&site=qq&menu=yes">
-                <img border="0" src="http://wpa.qq.com/pa?p=2:149714147:53" alt="点击这里给我发消息" title="点击这里给我发消息"/>
-            </a>
-        </div>
-        <label>在线客服</label>
+        <a class="qq-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo \Yii::$app->params['concat_qq'];?>&site=qq&menu=yes">
+            <label>在线客服</label>
+        </a>
 
     </li>
     <li class="wx" href="javascript:void(0);">
@@ -90,6 +88,9 @@ $currPage = \Yii::$app->controller->action->id;
     </li>
     <li class="phone" href="javascript:void(0);">
         <label>客服电话</label>
+        <div class="phone-number">
+            <?php echo \Yii::$app->params['concat_phone'];?>
+        </div>
     </li>
 </ul>
 </body>

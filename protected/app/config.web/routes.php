@@ -16,6 +16,9 @@ return [
 	'GET /index'=>'web/index/index',
 	'GET /about'=>'web/index/about',
 	'GET /courses'=>'web/index/courses',
+	'GET /contact'=>'web/index/contact',
+	'GET /price'=>'web/index/price',
+	'GET /preferential'=>'web/index/preferential',
 
 
 

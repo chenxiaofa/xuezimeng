@@ -14,6 +14,9 @@ $config = [
                 'application/json' => 'yii\web\JsonParser',
             ],
         ],
+        'cache'=>[
+            'class'=>'yii\caching\FileCache'
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

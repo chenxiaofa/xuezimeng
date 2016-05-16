@@ -11,6 +11,7 @@ namespace app\modules\api\controllers;
 
 
 use app\managers\AccountManager;
+use app\modules\api\validators\ChangePasswordValidator;
 use app\modules\api\validators\LoginValidator;
 use app\modules\api\validators\SignInValidator;
 use app\modules\api\validators\SignUpValidator;
@@ -62,4 +63,17 @@ class AccountController extends ApiController
 	{
 		return AccountManager::getInstance()->getMyAccountInfo();
 	}
+
+	public function actionChangePassword()
+	{
+		$vChangePassword = ChangePasswordValidator::createFromBodyParams();
+		if (!$vChangePassword->validate())
+		{
+
+			$vChangePassword->T();
+		}
+		$mgr = AccountManager::getInstance();
+		return $mgr->changePassword($vChangePassword);
+	}
+
 }

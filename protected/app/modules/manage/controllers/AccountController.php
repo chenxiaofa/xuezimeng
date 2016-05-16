@@ -28,6 +28,15 @@ class AccountController extends ApplicationController
 	}
 
 	/**
+	 * 修改密码
+	 */
+	public function actionChangePassword()
+	{
+		$this->layout = 'ace';
+		return $this->render('change-password');
+	}
+
+	/**
 	 * 注册页面
 	 */
 	public function actionSignIn()

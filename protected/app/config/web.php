@@ -1,116 +1,37 @@
 <?php
 
+$params = [
+    'adminEmail' => 'admin@example.com',
+    'appName' => 'WebApp',
+    'company' => 'xfa',
+    'version'=>'0.1',
+];
 
-define('WEIXIN_CATEGORY','WeiXin:');
-$params = require(__DIR__ . '/params.php');
 
 $config = [
-    //'catchAll'=>['/index/maintenance'],
     'id' => 'Web',
     'name'=>'学子梦培训',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
     'defaultRoute'=>'index/index',
     'components' => [
-        'session' => [
-            'class' => 'yii\web\DbSession',
-            'sessionTable' => 'm_php_session', 
-        ],
-        'authManager' => [
-            'class' => 'app\rbac\RbacManager',
-        ], 
-        'request' => [
-            'cookieValidationKey' => 'web-push-portal',
-            'enableCsrfValidation'=>false,
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
-            ], 
-        ],
-        'user' => [
-            'identityClass' => 'app\models\Users',
-            'enableAutoLogin' => false,
-        ],
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'enableStrictParsing' => false,
-            'rules' => require(__DIR__ . '/routes.php'),
-        ],
-//        'log' => [
-//            'targets' => [
-//                [
-//                    'class' => 'yii\log\FileTarget',
-//                    'levels' => ['error'],
-//                    'categories' => ['yii\*'],
-//                    'logFile'=> '@runtime/logs/yii.error.log'
-//                ]
-//,
-//                [
-//                    'class' => 'yii\log\FileTarget',
-//                    'levels' => ['error'],
-//                    'categories' => ['app*'],
-//                    'logFile'=> '@runtime/logs/app.error.log'
-//                ],
-//                [
-//                    'class' => 'yii\log\FileTarget',
-//                    'levels' => [],
-//                    'categories' => ['app*'],
-//                    'logFile'=> '@runtime/logs/app.trace.log'
-//                ],
-//                [
-//                    'class' => 'yii\log\FileTarget',
-//                    'levels' => [],
-//                    'categories' => ['WeiXin*'],
-//                    'logVars'=>[],
-//                    'logFile'=> '@runtime/logs/weixin.log'
-//                ],
-//            ],
-//        ],
         'db' => require(__DIR__ . '/db.php'),
-    ],
-    'params' => $params,
-    'modules'=>[
-        'rest'=>[
-            'class'=>'app\modules\rest\Module'
-        ],
-        'api'=>[
-            'class'=>'app\modules\api\Module'
-        ],
-        'wx'=>[
-            'class'=>'app\modules\weixin\Module',
-        ],
-        'web'=>[
-            'class'=>'app\modules\web\Module',
-        ],
-        'm'=>[
-            'class'=>'app\modules\mobile\Module',
-        ],
-        'manage'=>[
-            'class'=>'app\modules\manage\Module',
+        'cache'=>[
+            'class'=>'yii\caching\FileCache'
         ],
     ],
+    'params'=>$params,
+    'modules'=>[],
+    'bootstrap'=>[],
 ];
 
-//if (1)
-//{
-//    $config['modules']['gii'] = [
-//        'class'=>'yii\gii\Module',
-//        'allowedIPs' => ['*'],
-//    ];
-//    $config['modules']['debug'] = [
-//        'class'=>'yii\debug\Module',
-//        'allowedIPs' => ['*'],
-//    ];
-//    $config['bootstrap'][] = 'gii';
-//    $config['bootstrap'][] = 'debug';
-//}
-
-if (preg_match('/^\/manage/',$_SERVER['REQUEST_URI']))
+$match = array();
+if (preg_match('/^\/(manage|wx|api|rest|m)[\/]?/',$_SERVER['REQUEST_URI'],$match))
 {
-    $config['components']['view'] = [
-        'class'=>'app\modules\manage\View',
-        'menu'=>include 'menu.php',
-    ];
+    include __DIR__ . sprintf('/../config.%s/web.php',$match[1]);
+}
+else
+{
+    include __DIR__ . '/../config.web/web.php';
 }
 
 return $config;

@@ -322,6 +322,14 @@
 			'restApiExamSession':function()
 			{
 				return new restApi('/rest/exam-session');
+			},
+			'apiChangePassword':function(account,password,new_password,re_new_password)
+			{
+				return new api('/api/account/change-password','POST',{},{'account':account,'password':password,'new_password':new_password,'re_new_password':re_new_password});
+			},
+			'apiSignOut':function()
+			{
+				return new api('/api/account/sign-out','GET',{},{});
 			}
 
 		};

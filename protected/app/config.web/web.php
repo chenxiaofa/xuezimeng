@@ -1,37 +1,55 @@
 <?php
-$params = require(__DIR__ . '/../config/params.php');
 
-$config = [
-    'id' => 'Web',
-    'name'=>'学子梦培训',
-    'basePath' => dirname(__DIR__),
-    'defaultRoute'=>'index/index',
-    'components' => [
-        'request' => [
-            'cookieValidationKey' => 'web-push-portal',
-            'enableCsrfValidation'=>false,
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
-            ],
-        ],
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'enableStrictParsing' => false,
-            'rules' => require(__DIR__ . '/routes.php'),
-        ],
-        'db' => require(__DIR__ . '/../config/db.php'),
-    ],
-    'params' => $params,
-    'modules'=>[
-        'web'=>[
-            'class'=>'app\modules\web\Module',
-        ],
-        'm'=>[
-            'class'=>'app\modules\mobile\Module',
-        ],
-    ],
+$routes = [
+
+    //PC端
+    'GET /'=>'web/index/index',
+    'GET /index'=>'web/index/index',
+    'GET /about'=>'web/index/about',
+    'GET /courses'=>'web/index/courses',
+    'GET /contact'=>'web/index/contact',
+    'GET /price'=>'web/index/price',
+    'GET /preferential'=>'web/index/preferential',
+
+
+
+    //移动端
+    'GET m'=>'m/index/index',
+    'GET m/about'=>'m/index/about',
+    'GET exam'=>'m/exam/welcome',
+    'GET exam/start'=>'m/exam/index',
+    'GET exam/finished'=>'m/exam/finished',
+    'GET survey'=>'m/exam/welcome',
+    'GET survey/start'=>'m/exam/index',
+    'GET survey/finished'=>'m/exam/finished',
+
 ];
+
+/** @var array $config */
+$config['components'] = array_merge($config['components'],[
+    'request'=>[
+        'cookieValidationKey' => 'web-push-portal',
+        'enableCsrfValidation'=>false,
+        'parsers' => [
+            'application/json' => 'yii\web\JsonParser',
+        ],
+    ],
+    'urlManager'=>[
+        'enablePrettyUrl' => true,
+        'showScriptName' => false,
+        'enableStrictParsing' => false,
+        'rules' => $routes,
+    ],
+]);
+
+$config['modules'] = array_merge($config['modules'],[
+    'web'=>[
+        'class'=>'app\modules\web\Module',
+    ],
+    'm'=>[
+        'class'=>'app\modules\mobile\Module',
+    ],
+]);
 
 
 if (1)
@@ -47,5 +65,3 @@ if (1)
     $config['bootstrap'][] = 'gii';
     $config['bootstrap'][] = 'debug';
 }
-
-return $config;

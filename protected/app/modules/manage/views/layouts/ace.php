@@ -1,6 +1,8 @@
 <?php
+
 /** @var View $this */
 use app\modules\manage\View;
+use yii\helpers\Url;
 
 $appName = \Yii::$app->name;
 	$curUserName = \Yii::$app->user->identity->username;
@@ -89,11 +91,34 @@ $appName = \Yii::$app->name;
 						<li class="divider"></li>
 
 						<li>
-							<a href="#">
+							<a href="javascript:void(0);" id="logout">
 								<i class="icon-off"></i>
 								退出
 							</a>
 						</li>
+						<script>
+							(function()
+							{
+								var logoutFunction = function()
+								{
+									$('#logout').on(
+										'click',
+										function()
+										{
+											Api.apiSignOut()
+												.setCompleteCallback(
+													function()
+													{
+														window.location.href = '<?php echo Url::to(['account/sign-up'])?>';
+													}
+												).send()
+										
+										}
+									);
+								};
+								$(logoutFunction);
+							})();
+						</script>
 					</ul>
 				</li>
 			</ul><!-- /.ace-nav -->

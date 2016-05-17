@@ -3,6 +3,7 @@
 namespace app\managers;
 use app\exceptions\BusinessLogicException;
 use app\models\Users;
+use app\modules\api\validators\ChangePasswordValidator;
 use app\modules\api\validators\SignInValidator;
 use app\modules\api\validators\SignUpValidator;
 use Yii;
@@ -70,4 +71,15 @@ class AccountManager extends Manager
 		return ['email'=>Yii::$app->user->identity->email,'username'=>Yii::$app->user->identity->username];
 	}
 
+	public function changePassword(ChangePasswordValidator $vChangePassword)
+	{
+		$userModel = $vChangePassword->userModel;
+
+		$userModel->setPassword($vChangePassword->new_password);
+
+		$userModel->save();
+
+		return [];
+
+	}
 }

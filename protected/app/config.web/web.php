@@ -52,7 +52,7 @@ $config['modules'] = array_merge($config['modules'],[
 ]);
 
 
-if (1)
+if (0)
 {
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module',

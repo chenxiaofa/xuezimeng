@@ -73,7 +73,7 @@ $currPage = \Yii::$app->controller->action->id;
 </footer>
 <ul class="contact_block">
     <li class="qq" href="javascript:void(0);">
-        <a class="qq-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo \Yii::$app->params['concat_qq'];?>&site=qq&menu=yes">
+        <a class="qq-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo \Yii::$app->params['contact_qq'];?>&site=qq&menu=yes">
             <label>在线客服</label>
         </a>
 
@@ -89,7 +89,7 @@ $currPage = \Yii::$app->controller->action->id;
     <li class="phone" href="javascript:void(0);">
         <label>客服电话</label>
         <div class="phone-number">
-            <?php echo \Yii::$app->params['concat_phone'];?>
+            <?php echo \Yii::$app->params['contact_phone'];?>
         </div>
     </li>
 </ul>

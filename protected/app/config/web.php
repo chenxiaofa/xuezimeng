@@ -12,6 +12,7 @@ $config = [
     'id' => 'Web',
     'name'=>'学子梦培训',
     'basePath' => dirname(__DIR__),
+    'runtimePath'=> dirname(__DIR__).'/../runtime',
     'defaultRoute'=>'index/index',
     'components' => [
         'db' => require(__DIR__ . '/db.php'),

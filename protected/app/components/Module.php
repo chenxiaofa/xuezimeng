@@ -27,10 +27,10 @@ class Module extends \yii\base\Module
     {
         $module = $this->id;
         $controller = $action->controller->id;
-        $action = $action->id;
+        $actionName = $action->id;
 
         register_shutdown_function(
-            function()use($module,$controller,$action)
+            function()use($module,$controller,$actionName)
             {
                 $log = new AccessLog();
                 $log->access_time = time();
@@ -48,7 +48,7 @@ class Module extends \yii\base\Module
                     ,$_SERVER['REQUEST_METHOD']);
                 $log->module = $module;
                 $log->controller = $controller;
-                $log->action = $action;
+                $log->action = $actionName;
                 $log->from = $_SERVER['HTTP_X_REAL_IP'];
                 $log->request = json_encode($_GET);
                 $log->save(false);

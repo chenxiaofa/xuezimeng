@@ -22,7 +22,7 @@
                     <h5>地址</h5>
                     <p>江西省赣州市会昌县红旗大道326号</p>
                     <h5>联系电话</h5>
-                    <p>xxxxxxxx</p>
+                    <p><?php echo \Yii::$app->params['contact_phone'];?></p>
                 </div>
             </div>
         </div>

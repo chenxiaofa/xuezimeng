@@ -7,7 +7,7 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 /*@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);*/
 /*@import url(http://fonts.googleapis.com/css?family=Lato:400,700);*/
 body {
-	font-family: 'Lato', sans-serif;
+	font-family: "Microsoft YaHei",Lyh-Regular,helvetica,arial,sans-serif;
 	font-weight: normal;
     color: #6E6E6E;
 }
@@ -35,7 +35,6 @@ a:hover, a:focus{
 .navbar-nav>li>a {
 	padding-top: 12px;
 	padding-bottom: 12px;
-	font-family: 'Oswald', sans-serif;
 	font-weight: 400 !important;
 }
 blockquote {
@@ -1150,7 +1149,7 @@ list-style: none;
 	height:65px;
 	background: #78C344;
 	left:65px;
-	font-size: 26px;
+	font-size: 22px;
 	padding: 20px 0;
 	line-height: 26px;
 	font-weight: bold;

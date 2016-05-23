@@ -5,7 +5,8 @@ use app\modules\manage\View;
 use yii\helpers\Url;
 
 $appName = \Yii::$app->name;
-	$curUserName = \Yii::$app->user->identity->username;
+$curUserName = \Yii::$app->user->identity->username;
+$isSubWindow = \Yii::$app->request->get('sub-window',false);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +26,7 @@ $appName = \Yii::$app->name;
 	<!-- fonts -->
 	<!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />-->
 	<!-- ace styles -->
-	<link rel="stylesheet" href="/static/css/ace.min.css" />
-	<link rel="stylesheet" href="/static/css/ace-rtl.min.css" />
-	<link rel="stylesheet" href="/static/css/ace-skins.min.css" />
-	<link rel="stylesheet" href="/static/css/manage/manage.css" />
+
 	<script src="/static/js/ace-extra.min.js"></script>
 	<!-- basic scripts -->
 
@@ -50,7 +48,8 @@ $appName = \Yii::$app->name;
 
 </head>
 
-<body>
+<body class="<?php if ($isSubWindow){echo 'sub-window';}?>">
+<?php if (!$isSubWindow):?>
 <div class="navbar navbar-default" id="navbar">
 	<div class="navbar-container" id="navbar-container">
 		<div class="navbar-header pull-left">
@@ -125,13 +124,12 @@ $appName = \Yii::$app->name;
 		</div><!-- /.navbar-header -->
 	</div><!-- /.container -->
 </div>
-
+<?php endif;?>
 <div class="main-container" id="main-container">
 	<div class="main-container-inner">
-		<a class="menu-toggler" id="menu-toggler" href="#">
-			<span class="menu-text"></span>
-		</a>
 
+		<?php if (!$isSubWindow):?>
+		<a class="menu-toggler" id="menu-toggler" href="#"><span class="menu-text"></span></a>
 		<div class="sidebar" id="sidebar">
 			<?php echo $this->render('menu.php');?>
 
@@ -139,7 +137,7 @@ $appName = \Yii::$app->name;
 				<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
 			</div>
 		</div>
-
+		<?php endif;?>
 		<div class="main-content">
 			<div class="breadcrumbs" id="breadcrumbs" style="display: none;">
 				<ul class="breadcrumb">
@@ -177,5 +175,9 @@ $appName = \Yii::$app->name;
 
 
 </body>
+<link rel="stylesheet" href="/static/css/ace.min.css" />
+<link rel="stylesheet" href="/static/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="/static/css/ace-skins.min.css" />
+<link rel="stylesheet" href="/static/css/manage/manage.css" />
 </html>
 

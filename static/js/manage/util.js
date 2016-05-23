@@ -149,8 +149,23 @@ var Util = {};
             getData(option.page,option.page_size);
         };
 
+        function openSubWindow(url)
+        {
+            function CenterPopup(url)
+            {
 
+            }
+            if (url.match(/\?/))
+            {
+                url = url + '&sub-window=1';
+            }
+            else
+            {
+                url = url + '?sub-window=1';
+            }
+            return CenterPopup(url);
+        }
 
-        $.extend(g,{'RestTable':restTable});
+        $.extend(g,{'RestTable':restTable,'openSubWindow':openSubWindow});
     }
 )(window.Util,window.jQuery);

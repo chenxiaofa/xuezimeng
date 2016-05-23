@@ -10,3 +10,13 @@ td.c,th.c {
 td.r,th.r {
     text-align: right;
 }
+
+.sub-window #navbar,
+.sub-window #sidebar
+{
+    display: none;
+}
+.sub-window .main-content
+{
+    margin-left:0;
+}

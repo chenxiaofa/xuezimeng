@@ -23,6 +23,15 @@ $menu   = [
                 ['name'=>'修改密码','url'=>'/manage/account/change-password'],
             ]
     ],
+    [
+        'name'=>'素材管理',
+        'icon'=>'icon-picture',
+        'sub_menu'=>
+            [
+                ['name'=>'图片素材','url'=>'/manage/resources/image'],
+                ['name'=>'添加图片素材','url'=>'/manage/resources/add-image'],
+            ]
+    ],
 //	[
 //		'name'=>'微信管理',
 //		'icon'=>' icon-comments-alt',

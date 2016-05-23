@@ -11,6 +11,13 @@ $components = [
         'enableStrictParsing' => false,
         'rules' => $routes,
     ],
+    'request' => [
+        'cookieValidationKey' => 'web-push-portal',
+        'enableCsrfValidation'=>false,
+        'parsers' => [
+            'application/json' => 'yii\web\JsonParser',
+        ],
+    ],
 ];
 
 $modules = [

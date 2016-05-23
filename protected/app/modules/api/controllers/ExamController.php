@@ -13,6 +13,7 @@ use app\managers\WeixinManager;
 use app\models\ExamFillable;
 use app\models\ExamSession;
 use app\modules\api\validators\ExamSaveValidator;
+use yii\base\Exception;
 
 class ExamController extends ApiController
 {
@@ -38,9 +39,15 @@ class ExamController extends ApiController
                 $efModel->save();
             }
         }
+        try
+        {
+            $mgr = WeixinManager::getInstanceByAppId(2);
+            $mgr->sendSurveyNotify('gk5htxRCYx1pbeQnYcJuakD1ytnGTE-tbFQrNd_lgWU','oTZKqt93A2ydj4gcCrhWwvHC4vWo');
+        }catch(\Exception $e)
+        {
 
-        $mgr = WeixinManager::getInstanceByAppId(2);
-        $mgr->sendSurveyNotify('gk5htxRCYx1pbeQnYcJuakD1ytnGTE-tbFQrNd_lgWU','oTZKqt93A2ydj4gcCrhWwvHC4vWo');
+        }
+
 
         return $model;
     }

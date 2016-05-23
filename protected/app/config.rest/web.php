@@ -24,6 +24,9 @@ $components = [
         'enablePrettyUrl' => true,
         'showScriptName' => false,
         'enableStrictParsing' => false,
+        'rules' => [
+            ['class' => 'app\rest\UrlRule', 'controller' => ['rest/resources']],
+        ],
     ],
 ];
 $modules = [

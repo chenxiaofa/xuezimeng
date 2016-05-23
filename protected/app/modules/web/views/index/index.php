@@ -2,19 +2,15 @@
 <!-- Header -->
 <header id="head">
     <div class="container">
-        <div class="heading-text">
-            <h1 class="animated flipInY delay1">助力高分，升学无忧</h1>
-            <p>雄厚的师资，是您升学的保证，教师全部本科及以上学历，年轻化高素质的教学团队，课堂生动有趣，深得广大学子的喜爱！</p>
-        </div>
+
 
         <div class="fluid_container">
             <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
-                <div data-thumb="assets/images/slides/thumbs/img1.jpg" data-src="assets/images/slides/img1.jpg">
-                    <h2>We develop.</h2>
+                <div data-thumb="assets/images/slides/thumbs/b1.jpg" data-src="assets/images/slides/b1.jpg">
                 </div>
-                <div data-thumb="assets/images/slides/thumbs/img2.jpg" data-src="assets/images/slides/img2.jpg">
+                <div data-thumb="assets/images/slides/thumbs/b2.jpg" data-src="assets/images/slides/b2.jpg">
                 </div>
-                <div data-thumb="assets/images/slides/thumbs/img3.jpg" data-src="assets/images/slides/img3.jpg">
+                <div data-thumb="assets/images/slides/thumbs/b3.jpg" data-src="assets/images/slides/b3.jpg">
                 </div>
             </div><!-- #camera_wrap_3 -->
         </div><!-- .fluid_container -->
@@ -80,23 +76,21 @@
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="assets/js/modernizr-latest.js"></script>
-<script type='text/javascript' src='assets/js/jquery.min.js'></script>
-<script type='text/javascript' src='assets/js/fancybox/jquery.fancybox.pack.js'></script>
 
+<script type='text/javascript' src='assets/js/fancybox/jquery.fancybox.pack.js'></script>
 <script type='text/javascript' src='assets/js/jquery.mobile.customized.min.js'></script>
 <script type='text/javascript' src='assets/js/jquery.easing.1.3.js'></script>
 <script type='text/javascript' src='assets/js/camera.min.js'></script>
-<script src="assets/js/bootstrap.min.js"></script>
+
 <script src="assets/js/custom.js"></script>
 <script>
     jQuery(function(){
-
         jQuery('#camera_wrap_4').camera({
-            transPeriod: 500,
+            transPeriod: 1000,
             time: 3000,
             height: '600',
             loader: 'false',
-            pagination: true,
+            pagination: false,
             thumbnails: false,
             hover: false,
             playPause: false,
@@ -106,6 +100,5 @@
         });
 
     });
-
 </script>
 

@@ -18,6 +18,8 @@ $currPage = \Yii::$app->controller->action->id;
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
     <![endif]-->
+    <script type='text/javascript' src='assets/js/jquery.min.js'></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 </head>
 <body>
 <!-- Fixed navbar -->

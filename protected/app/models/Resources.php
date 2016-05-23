@@ -53,6 +53,17 @@ class Resources extends \yii\db\ActiveRecord
         ];
     }
 
+    public function fields()
+    {
+        return [
+            'id',
+            'type',
+            'name',
+            'url',
+            'create_time'=>function($model){return date('Y-m-d H:i:s',$model->create_time);}
+        ];
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */

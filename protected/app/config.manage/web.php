@@ -6,6 +6,14 @@ $menu   = [
         'icon'=>'icon-dashboard',
         'url'=>'/manage'
     ],
+//    [
+//        'name'=>'网站设置',
+//        'icon'=>'icon-user',
+//        'sub_menu'=>
+//            [
+//                ['name'=>'B','url'=>'/manage/survey/list'],
+//            ]
+//    ],
     [
         'name'=>'学生管理',
         'icon'=>'icon-user',

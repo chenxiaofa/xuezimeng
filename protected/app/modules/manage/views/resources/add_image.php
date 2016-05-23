@@ -29,9 +29,9 @@
 		try {
 			$(".dropzone").dropzone({
 				paramName: "file", // The name that will be used to transfer the file
-//				maxFilesize: 0.5, // MB
-
-//				addRemoveLinks : true,
+				maxFilesize: 10, // MB
+				acceptedFiles:'image/*',
+				addRemoveLinks : true,
 				dictDefaultMessage :
 						'<span class="bigger-150 bolder"><i class="icon-caret-right red"></i> 拖拽图片</span> \
 						<span class="smaller-80 grey">(或点击选择)</span> <br /> \

@@ -279,10 +279,10 @@
 		};
 		var restApi = function(url)
 		{
-			var _api = new api(url,'',{},{},{});
 			return  {
 				'getList':function(page,size,condition,success,failed,error)
 				{
+					var _api = new api(url,'',{},{},{});
 					if (typeof failed === 'function')_api.setFailedCallback(failed);
 					if (typeof error === 'function')_api.setFailedCallback(error);
 					page && _api.setUrlParam('page',page);
@@ -302,6 +302,17 @@
 					);
 					$.each(condition,function(k,v){_api.setUrlParam(k,v)});
 					_api.send('GET');
+				},
+				'delete':function(id,success,failed,error)
+				{
+					var _api = new api(url+'/'+id,'DELETE',{},{},{});
+					if (typeof failed === 'function')_api.setFailedCallback(failed);
+					if (typeof error === 'function')_api.setFailedCallback(error);
+					if (typeof success === 'function')
+					{
+						success.call(_api);
+					}
+					_api.send();
 				}
 			};
 			//return rest;
@@ -330,6 +341,10 @@
 			'apiSignOut':function()
 			{
 				return new api('/api/account/sign-out','GET',{},{});
+			},
+			'restResources':function()
+			{
+				return new restApi('/rest/resources');
 			}
 
 		};

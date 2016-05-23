@@ -17,13 +17,11 @@ class ExamSessionController extends \app\rest\ActiveController
     public function addCondition($query)
     {
         $r = \Yii::$app->request;
-        $where = [];
-        $param = [];
+        $query->orderBy('id desc');
         if (($status = $r->get('status',false)) !== false)
         {
             $query->andWhere('status = :status',[':status'=>$status]);
         }
-
         return $query;
     }
 

@@ -117,7 +117,7 @@ class Api
 			return false;
 		}
 
-		if (array_key_exists('errcode',$result))
+		if ( array_key_exists('errcode',$result) &&  $result['errcode'] > 0 )
 		{
 			$this->errorCode = $result['errcode'];
 			$this->errorString = $result['errmsg'];

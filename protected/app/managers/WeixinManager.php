@@ -14,6 +14,7 @@ use app\models\WxApp;
 use app\models\WxBind;
 use app\models\WxUsers;
 use app\weixin\api\AuthorizeApi;
+use app\weixin\api\TemplateApi;
 use app\weixin\api\TokenApi;
 use \app\models\WxMenu;
 use \app\weixin\api\MenuApi;
@@ -27,6 +28,10 @@ use app\weixin\exceptions\WeixinApiException;
  */
 class WeixinManager extends Manager
 {
+	public static function getInstanceByAppId($wxAppId)
+	{
+		return WeixinManager::getInstance(['wxAppModel'=>WxApp::findOne(['id'=>$wxAppId])]);
+	}
 	/** @var WxApp $wxAppModel */
 	public $wxAppModel = null;
 	public $wx_access_token = null;
@@ -130,6 +135,19 @@ class WeixinManager extends Manager
 	{
 		$api = AuthorizeApi::create($this->wxAppModel);
 		return  $api->authWithSnsapiBase();
+
+	}
+
+	public function sendSurveyNotify($templdateId,$openId)
+	{
+		$api = TemplateApi::create($this->wxAppModel);
+		$api->setReceiver($openId);
+		$api->setTemplateId($templdateId);
+		if ($api->sendTemplate() === false)
+		{
+			BusinessLogicException::T('通信错误');
+		}
+		return true;
 
 	}
 

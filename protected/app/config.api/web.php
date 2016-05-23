@@ -1,6 +1,5 @@
 <?php
 
-define('WEIXIN_CATEGORY','WeiXin:');
 
 $route  = [
     //微信接口

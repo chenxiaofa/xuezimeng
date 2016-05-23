@@ -9,6 +9,7 @@
 namespace app\modules\api\controllers;
 
 
+use app\managers\WeixinManager;
 use app\models\ExamFillable;
 use app\models\ExamSession;
 use app\modules\api\validators\ExamSaveValidator;
@@ -38,6 +39,8 @@ class ExamController extends ApiController
             }
         }
 
+        $mgr = WeixinManager::getInstanceByAppId(2);
+        $mgr->sendSurveyNotify('gk5htxRCYx1pbeQnYcJuakD1ytnGTE-tbFQrNd_lgWU','oTZKqt93A2ydj4gcCrhWwvHC4vWo');
 
         return $model;
     }

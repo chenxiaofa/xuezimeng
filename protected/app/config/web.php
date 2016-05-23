@@ -1,5 +1,5 @@
 <?php
-
+define('WEIXIN_CATEGORY','WeiXin:');
 $params = [
     'adminEmail' => 'admin@example.com',
     'appName' => 'WebApp',
@@ -19,10 +19,20 @@ $config = [
         'cache'=>[
             'class'=>'yii\caching\FileCache'
         ],
+        'log' => [
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['info','warning','error'],
+                    'logVars'=>[],
+                    'logFile'=> '@runtime/logs/yii.log'
+                ],
+            ],
+        ],
     ],
     'params'=>$params,
     'modules'=>[],
-    'bootstrap'=>[],
+    'bootstrap'=>['log'],
 ];
 
 $match = array();

@@ -1,7 +1,5 @@
 <?php
 
-define('WEIXIN_CATEGORY','WeiXin:');
-
 $routes  = [
     'POST wx/<app_id:\d+>'=>'weixin/index/index',
     'GET wx/<app_id:\d+>'=>'weixin/index/join',

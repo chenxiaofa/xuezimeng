@@ -27,7 +27,6 @@ class ExamController extends ApiController
         $model = new ExamSession();
         $model->setAttributes($vExamSave->getAttributes(),false);
         $model->save();
-
         if (!empty($vExamSave->fillable))
         {
             foreach($vExamSave->fillable as $eqid=>$content)

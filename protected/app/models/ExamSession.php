@@ -77,7 +77,11 @@ class ExamSession extends \yii\db\ActiveRecord
                 }
 
                 return $options;
-            }
+            },
+            'message'=>function($model)
+            {
+                return htmlspecialchars($model->message);
+            },
         ];
     }
 

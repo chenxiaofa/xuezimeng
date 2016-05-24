@@ -11,3 +11,4 @@ CREATE TABLE `m_resources` (
   CONSTRAINT `uid` FOREIGN KEY (`owner`) REFERENCES `m_users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
+ALTER TABLE `m_exam_session` ADD COLUMN `message` VARCHAR(512) DEFAULT '' NULL COMMENT '留言';

@@ -31,7 +31,6 @@
                             <div class="box_inner">
                                 <div class="box">
                                     <p class="title"><h5>小学</h5></p>
-                                    <p>涵盖小学全部阶段,1-3年纪,四年级,五年级,六年级.</p>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +45,6 @@
                             <div class="box_inner">
                                 <div class="box">
                                     <p class="title"><h5>初中</h5></p>
-                                    <p>初一,初二,初三..</p>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +59,6 @@
                             <div class="box_inner">
                                 <div class="box">
                                     <p class="title"><h5>高中</h5></p>
-                                    <p>高中.</p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +68,6 @@
         </div>
     </div>
 </section>
-
 
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->

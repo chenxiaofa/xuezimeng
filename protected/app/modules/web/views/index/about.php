@@ -26,6 +26,43 @@
 
     </div>
 </section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>风采展示</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <img   src="/assets/images/fc/fc1.png" />
+                <p>学子梦培训，会昌县红旗大道326号三楼（县人民法院旁）</p>
+            </div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <img   src="/assets/images/fc/fc2.png" />
+                <p>多彩各异的主题教室，当您置身其中，您会发现学习其实是一种享受。</p>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <img   src="/assets/images/fc/fc3.png" />
+                <p>多彩各异的主题教室，当您置身其中，您会发现学习其实是一种享受。</p>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <img   src="/assets/images/fc/fc4.png" />
+                <p>多彩各异的主题教室，当您置身其中，您会发现学习其实是一种享受。</p>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <img   src="/assets/images/fc/fc5.png" />
+                <p>文艺范的“不二书吧”，阅读、自习的好去处，重点是免费为所有同学开放！</p>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <img   src="/assets/images/fc/fc6.png" />
+                <p>咱们还配备多媒体教室，便于多种教学方式开展，效率更高，课堂更生动。</p>
+            </div>
+
+        </div>
+    </div>
+</section>
 <!-- /container -->
 <section class="team-content">
     <div class="container">
@@ -47,9 +84,7 @@
                         <img class="img-responsive" src="assets/images/photo-1.jpg" alt="">
                     </div>
                     <!-- Member Details -->
-                    <h4>John Doe</h4>
-                    <!-- Designation -->
-                    <span class="pos">CEO</span>
+                    <h4>何老师</h4>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6">
@@ -61,9 +96,7 @@
                         <img class="img-responsive" src="assets/images/photo-2.jpg" alt="">
                     </div>
                     <!-- Member Details -->
-                    <h4>Larry Doe</h4>
-                    <!-- Designation -->
-                    <span class="pos">Director</span>
+                    <h4>傅老师</h4>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6">
@@ -75,25 +108,10 @@
                         <img class="img-responsive" src="assets/images/photo-3.jpg" alt="">
                     </div>
                     <!-- Member Details -->
-                    <h4>Ranith Kays</h4>
-                    <!-- Designation -->
-                    <span class="pos">Manager</span>
+                    <h4>张老师</h4>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <!-- Team Member -->
-                <div class="team-member pDark">
-                    <!-- Image Hover Block -->
-                    <div class="member-img">
-                        <!-- Image  -->
-                        <img class="img-responsive" src="assets/images/photo-4.jpg" alt="">
-                    </div>
-                    <!-- Member Details -->
-                    <h4>Joan Ray</h4>
-                    <!-- Designation -->
-                    <span class="pos">Creative</span>
-                </div>
-            </div>
+
         </div>
     </div>
 

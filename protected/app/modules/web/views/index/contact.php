@@ -38,8 +38,7 @@
             </p>
 
 
-            <!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
-            <form name="sentMessage" id="contactForm" novalidate="">
+            <form name="sentMessage" id="contactForm" onsubmit="return false;">
                 <div class="control-group">
                     <div class="controls">
                         <input type="text" class="form-control" placeholder="姓名" id="name" >
@@ -48,7 +47,7 @@
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <input type="email" class="form-control" placeholder="电话" id="phone" >
+                        <input type="text" class="form-control" placeholder="电话" id="phone" >
                         <p class="help-block"></p>
                     </div>
                 </div>
@@ -60,14 +59,55 @@
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <textarea rows="10" cols="100" class="form-control" id="message" required="" style="resize:none"></textarea>
+                        <textarea rows="10" cols="100" class="form-control" id="message"  style="resize:none"></textarea>
                     </div>
                 </div>
                 <div id="success"> </div> <!-- For success/fail messages -->
-                <button type="submit" class="btn btn-primary pull-right">提交</button><br>
+                <button class="btn btn-primary pull-right" id="js-submit">提交</button><br>
             </form>
         </div>
 
     </div>
 </div>
+<script>window.$ = window.jQuery;</script>
+<script src="/static/js/api.js"></script>
+<script>
+    jQuery('#js-submit').on(
+        'click',
+        function()
+        {
+            var name = $('#name').val();
+            var phone = $('#phone').val();
+            var qq = $('#qq').val();
+            var message = $('#message').val();
+
+            if (phone.length == 0 && qq.length == 0)
+            {
+                alert('请至少留下QQ号码、微信号或者手机号码,方便跟进你的情况','完善信息');
+                return;
+            }
+
+            if (message.length == 0)
+            {
+                alert('请填写留言');
+                return;
+            }
+
+
+            Api.apiExamSave()
+                .setSuccessCallback(
+                    function()
+                    {
+                        alert('提交成功');
+                    }
+                )
+                .setPayload('name',name)
+                .setPayload('phone',phone)
+                .setPayload('qq',qq)
+                .setPayload('message',message)
+                .send();
+            return false;
+        }
+    )
+</script>
 

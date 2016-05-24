@@ -34,6 +34,7 @@
 						{'element':'电话','class':'r'},
 						{'element':'QQ、微信','class':'r'},
 						{'element':'学习遇到的困难','class':'h'},
+						{'element':'留言','class':'h'},
 						{'element':'时间','class':'r'}
 					],
 					'data_map':[
@@ -66,6 +67,8 @@
 								return content;
 							}
 						},
+
+						{'key':'message','class':'r'},
 						{'key':'exam_time','class':'r'}
 					]
 				}

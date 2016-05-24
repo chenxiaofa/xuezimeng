@@ -28,16 +28,16 @@ $currPage = \Yii::$app->controller->action->id;
         <div class="navbar-header">
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/index">
                 <img src="assets/images/logo.png" alt="学子梦培训"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right mainNav">
                 <li class="<?php if ($currPage === 'index') echo "active";?>"><a href="/">首页</a></li>
                 <li class="<?php if ($currPage === 'preferential') echo "active";?>"><a href="/preferential">优惠活动</a></li>
-                <li class="<?php if ($currPage === 'about') echo "active";?>"><a href="/about">关于</a></li>
-                <li class="<?php if ($currPage === 'courses') echo "active";?>"><a href="/courses">课程</a></li>
-                <li class="<?php if ($currPage === 'price') echo "active";?>"><a href="/price">价格</a></li>
+                <li class="<?php if ($currPage === 'about') echo "active";?>"><a href="/about">风采展示</a></li>
+<!--                <li class="--><?php //if ($currPage === 'courses') echo "active";?><!--"><a href="/courses">课程</a></li>-->
+<!--                <li class="--><?php //if ($currPage === 'price') echo "active";?><!--"><a href="/price">价格</a></li>-->
                 <li class="<?php if ($currPage === 'contact') echo "active";?>"><a href="/contact">联系我们</a></li>
 
             </ul>

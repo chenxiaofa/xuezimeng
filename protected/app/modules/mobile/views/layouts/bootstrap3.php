@@ -34,7 +34,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="header-menu">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/m/about">关于</a></li>
+					<li><a href="/about">关于</a></li>
 				</ul>
 			</div>
 		</div>

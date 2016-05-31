@@ -38,7 +38,7 @@ class ArticleController extends ApplicationController
 	 */
 	public function actionAdd($type)
 	{
-		return $this->render('add');
+		return $this->render('add_umedit.php',['type'=>$type]);
 	}
 
 }

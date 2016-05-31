@@ -5,7 +5,15 @@
 	{
 	}
 </style>
-<div id="summernote">Hello Summernote</div>
+<div id="summernote"></div>
+<div class="clearfix form-actions">
+	<div class="col-md-12">
+		<button class="btn btn-info" id="add_article" type="button">
+			<i class="icon-ok bigger-110"></i>
+			保存
+		</button>
+	</div>
+</div>
 <script>
 	$(document).ready(function() {
 		$('#summernote').summernote(

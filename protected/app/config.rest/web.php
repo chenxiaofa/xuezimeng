@@ -26,6 +26,7 @@ $components = [
         'enableStrictParsing' => false,
         'rules' => [
             ['class' => 'app\rest\UrlRule', 'controller' => ['rest/resources']],
+            ['class' => 'app\rest\UrlRule', 'controller' => ['rest/articles']],
         ],
     ],
 ];

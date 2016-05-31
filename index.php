@@ -1,4 +1,12 @@
 <?php
+if (array_key_exists('SERVER_NAME',$_SERVER) && $_SERVER['SERVER_NAME'] == 'xzm.xfa-dev.cn')
+{
+	$uri = array_key_exists('REQUEST_URI',$_SERVER)?$_SERVER['REQUEST_URI']:'';
+	Header("HTTP/1.1 301 Moved Permanently");
+	Header("Location: http://www.520xzm.com${uri}");
+	exit;
+}
+
 ini_set('display_errors',1);
 ini_set('error_reporting',E_ALL);
 //phpinfo();exit;

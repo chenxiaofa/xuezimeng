@@ -282,7 +282,7 @@
 			return  {
 				'getList':function(page,size,condition,success,failed,error)
 				{
-					var _api = new api(url,'',{},{},{});
+					var _api = new api(url+'/index','',{},{},{});
 					if (typeof failed === 'function')_api.setFailedCallback(failed);
 					if (typeof error === 'function')_api.setFailedCallback(error);
 					page && _api.setUrlParam('page',page);
@@ -345,6 +345,10 @@
 			'restResources':function()
 			{
 				return new restApi('/rest/resources');
+			},
+			'restArticles':function()
+			{
+				return new restApi('/rest/articles');
 			}
 
 		};

@@ -40,6 +40,15 @@ $menu   = [
                 ['name'=>'添加图片素材','url'=>'/manage/resources/add-image'],
             ]
     ],
+    [
+        'name'=>'内容管理',
+        'icon'=>'icon-book',
+        'sub_menu'=>
+            [
+                ['name'=>'站点内容','url'=>'/manage/article/tab-article'],
+                ['name'=>'学子梦动态','url'=>'/manage/article/news'],
+            ]
+    ],
 //	[
 //		'name'=>'微信管理',
 //		'icon'=>' icon-comments-alt',
@@ -55,6 +64,7 @@ $route  = [
     'GET manage'=>'manage/welcome/index',
     'GET manage/login'=>'manage/account/sign-up',
     //'GET manage/register'=>'web/account/sign-in',
+    'GET manage/article/add/<type:\d+>'=>'manage/article/add',
 ];
 $components = [
     'view'=>[

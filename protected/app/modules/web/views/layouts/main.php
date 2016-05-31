@@ -25,6 +25,7 @@ $currPage = \Yii::$app->controller->action->id;
 <!-- Fixed navbar -->
 <div class="navbar navbar-inverse">
     <div class="container">
+<!--    <div class="">-->
         <div class="navbar-header">
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
@@ -33,13 +34,16 @@ $currPage = \Yii::$app->controller->action->id;
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right mainNav">
+<!--            <ul class="nav navbar-nav pull-left mainNav">-->
                 <li class="<?php if ($currPage === 'index') echo "active";?>"><a href="/">首页</a></li>
-                <li class="<?php if ($currPage === 'preferential') echo "active";?>"><a href="/preferential">优惠活动</a></li>
-                <li class="<?php if ($currPage === 'about') echo "active";?>"><a href="/about">风采展示</a></li>
+                <li class="<?php if ($currPage === 'preferential') echo "active";?>"><a href="/preferential">最新课程</a></li>
+                <li class="<?php if ($currPage === '#') echo "active";?>"><a href="#">名师风采</a></li>
+                <li class="<?php if ($currPage === '#') echo "active";?>"><a href="#">学生园地</a></li>
+                <li class="<?php if ($currPage === '#') echo "active";?>"><a href="#">报名咨询</a></li>
 <!--                <li class="--><?php //if ($currPage === 'courses') echo "active";?><!--"><a href="/courses">课程</a></li>-->
 <!--                <li class="--><?php //if ($currPage === 'price') echo "active";?><!--"><a href="/price">价格</a></li>-->
-                <li class="<?php if ($currPage === 'contact') echo "active";?>"><a href="/contact">联系我们</a></li>
-
+<!--                <li class="--><?php //if ($currPage === 'contact') echo "active";?><!--"><a href="/contact">联系我们</a></li>-->
+                <li class="<?php if ($currPage === 'about') echo "active";?>"><a href="/about">关于学子梦</a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->

@@ -18,4 +18,27 @@ class ArticleController extends ApplicationController
 	{
 
 	}
+
+	public function actionTabArticle()
+	{
+		return $this->render('list');
+	}
+
+	/**
+	 * 网站动态
+	 */
+	public function actionNews()
+	{
+
+	}
+
+
+	/**
+	 * 添加文章
+	 */
+	public function actionAdd($type)
+	{
+		return $this->render('add');
+	}
+
 }

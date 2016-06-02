@@ -45,7 +45,8 @@ $menu   = [
         'icon'=>'icon-book',
         'sub_menu'=>
             [
-                ['name'=>'站点内容','url'=>'/manage/article/tab-article'],
+                ['name'=>'站点模块','url'=>'/manage/article/modules'],
+                ['name'=>'课程介绍','url'=>'/manage/article/topic'],
                 ['name'=>'学子梦动态','url'=>'/manage/article/news'],
             ]
     ],
@@ -65,6 +66,7 @@ $route  = [
     'GET manage/login'=>'manage/account/sign-up',
     //'GET manage/register'=>'web/account/sign-in',
     'GET manage/article/add/<type:\d+>'=>'manage/article/add',
+    'GET manage/article/edit/<aid:\d+>'=>'manage/article/edit', 
 ];
 $components = [
     'view'=>[

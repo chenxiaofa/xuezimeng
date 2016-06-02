@@ -139,6 +139,7 @@ var Util = {};
                         var th = $('<th></th>').appendTo(headerTr);
                         h.element && th.append(h.element);
                         h.class && th.addClass(h.class);
+                        h.width && th.width(h.width);
                     }
                 );
                 return tbody;
@@ -158,7 +159,7 @@ var Util = {};
                             var content = data[d.key];
                             if (typeof d.format  === 'function')
                             {
-                                content = d.format(content);
+                                content = d.format.call(data,content,data);
                             }
                             td.append(content);
                         }

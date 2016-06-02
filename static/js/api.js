@@ -325,6 +325,18 @@
 					}
 					$.each(data,function(k,v){_api.setPayload(k,v)});
 					_api.send();
+				},
+				update:function(id,data,success,failed,error)
+				{
+					var _api = new api(url+'/'+id,'PUT',{},{},{});
+					if (typeof failed === 'function')_api.setFailedCallback(failed);
+					if (typeof error === 'function')_api.setFailedCallback(error);
+					if (typeof success === 'function')
+					{
+						success.call(_api);
+					}
+					$.each(data,function(k,v){_api.setPayload(k,v)});
+					_api.send();
 				}
 			};
 			//return rest;

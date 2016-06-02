@@ -10,7 +10,7 @@ $routes = [
     'GET /contact'=>'web/index/contact',
     'GET /price'=>'web/index/price',
     'GET /preferential'=>'web/index/preferential',
-
+    'GET /articles/view/<aid:\d+>.html'=>'/web/articles/view',
 
 
     //移动端

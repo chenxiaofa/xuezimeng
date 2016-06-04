@@ -76,8 +76,10 @@ class Articles extends ArticlesBase
             $old = self::findOne(['id'=>$this->id]);
             ArticleDraft::addDraft($old->id,$old->title,$old->content);
         }
-
-        $this->content = (new XssFilter())->do_filter($this->content);
+        $xssFilter =  new XssFilter();
+        $this->content = $xssFilter->do_filter($this->content);
+        $this->title = $xssFilter->do_filter($this->title);
+        $this->summarization = $xssFilter->do_filter($this->summarization);
 
         $this->update_time = time();
 

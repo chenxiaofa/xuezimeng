@@ -71,7 +71,7 @@ class XssFilter
 		'body',
 		'applet',
 		/*'object',*/
-		'iframe',
+//		'iframe',
 		'frame',
 		'frameset',
 		'script',

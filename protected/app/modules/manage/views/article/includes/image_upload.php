@@ -122,6 +122,7 @@
 						}).on('success',
 							function(file,response)
 							{
+								console.log(response)
 								window.image_url = response['url'];
 							}
 						);

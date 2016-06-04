@@ -51,7 +51,7 @@ $currPage = \Yii::$app->controller->action->id;
                 foreach(Articles::getModuleTypeArticles() as $model)
                     {
                         $currUrl = strtolower(explode('?',$_SERVER['REQUEST_URI'])[0]);
-                        $url = '/articles/'.$model->id.'.html'
+                        $url = '/articles/'.$model->id.'.html';
                 ?>
                         <li class="<?php if($currUrl == $url)echo 'active'; ?>"><a href="<?php echo $url;?>"><?php echo $model->title?></a></li>
                 <?php

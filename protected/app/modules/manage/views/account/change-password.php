@@ -66,11 +66,24 @@
                 function()
                 {
                     var account = '<?php echo \Yii::$app->user->identity->username;?>';
-                    var password = $('#password');
-                    var new_password = $('#new_password');
-                    var re_new_password = $('#re_new_password');
+                    var password = $('#password').val();
+                    var new_password = $('#new_password').val();
+                    var re_new_password = $('#re_new_password').val();
                     Api.apiChangePassword(account,password,new_password,re_new_password)
-                        //.send();
+                        .setSuccessCallback(
+                            function()
+                            {
+                                alert('修改成功');
+                                window.location.reload(true);
+                            }
+                        ).setFailedCallback(
+                        function(status,error)
+                        {
+                            alert('修改失败'+error.message);
+                        }
+                    )
+                        .send();
+
                 }
             )
         };

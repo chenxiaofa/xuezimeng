@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel slide" data-ride="carousel" data-interval="2500">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>

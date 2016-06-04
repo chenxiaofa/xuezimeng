@@ -18,7 +18,13 @@
 	<script src="/static/js/api.js?20160505"></script>
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" <?php
+	if (!preg_match('/MicroMessenger/i',\Yii::$app->request->userAgent))
+	{
+		echo 'style="display:none;"';
+	}
+
+	?>>
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-menu" aria-expanded="false">

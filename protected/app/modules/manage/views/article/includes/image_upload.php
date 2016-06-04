@@ -1,6 +1,6 @@
 <div class="col-sm-12">
 	<link rel="stylesheet" href="/static/css/dropzone.css" />
-	<div class="widget-box collapsed">
+	<div class="widget-box collapsed" style="width:1240px;">
 		<div class="widget-header">
 			<h4>标题配图</h4>
 			<span class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a>	</span>
@@ -32,6 +32,7 @@
 							</div>
 						</div>
 						<div id="upload_new_image" class="tab-pane ">
+							<div>*只能上传一个图片</div>
 							<div id="dropzone">
 								<form action="/api/resources/upload" class="dropzone">
 									<div class="fallback">
@@ -58,6 +59,7 @@
 	(
 			function($)
 			{
+				window.image_url = '';
 				function init()
 				{
 					new Util.imageGallery(
@@ -76,7 +78,7 @@
 								'<div class="text">'+
 								'<div class="inner">'+data.name+'</div>'+
 								'</div>'+
-								'<div class="text" id="selected-mask" style="opacity: 1;display: none;" >'+
+								'<div class="text selected-mask" id="selected-mask" style="opacity: 1;display: none;" >'+
 								'<div class="inner"><i class="icon-ok bigger-230" ></i></div>'+
 								'</div>'+
 								'</a>'+
@@ -87,22 +89,24 @@
 						ele.on('click',
 								function()
 								{
-									selected  = !selected;
-									mask.hide();
-									if (selected)
+									if (!mask.is(':visible'))
 									{
+										$('#resource-list').find('.selected-mask').hide();
 										mask.show();
+										window.image_url = data.url;
 									}
+									else
+									{
+										$('#resource-list').find('.selected-mask').hide();
+										window.image_url = '';
+									}
+
 								}
 						);
 						return ele;
 					};
 					try {
 						$(".dropzone").dropzone({
-							success:function(a,b)
-							{
-								window.image_url = b['url'];
-							},
 							paramName: "file", // The name that will be used to transfer the file
 							maxFilesize: 10, // MB
 							maxFiles:1,
@@ -115,10 +119,14 @@
 
 							//change the previewTemplate to use Bootstrap progress bars
 							previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-small progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
-						});
+						}).on('success',
+							function(file,response)
+							{
+								window.image_url = response['url'];
+							}
+						);
 					} catch(e) {
 					}
-
 				}
 
 				$(init);

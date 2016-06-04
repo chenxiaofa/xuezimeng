@@ -20,12 +20,11 @@
 <div class="row">
 
 	<div class="col-sm-12" >
-		<input id="title" placeholder="标题" style="width:100%;padding:5px;"/>
+		<input id="title" placeholder="标题" style="width:1240px;padding:5px;"/>
 	</div>
 	<div class="col-sm-12">
-		<textarea id="introduction" placeholder="简介" style="width:100%;padding:5px;" ></textarea>
+		<textarea id="summarization" placeholder="副标题" style="width:1240px;padding:5px;" ></textarea>
 	</div>
-
 	<?php if ($type == 2):
 		include 'includes/image_upload.php';
 	endif;?>
@@ -77,7 +76,7 @@
 				var title = $('#title').val();
 				var content = ue.getContent();
 				var type = '<?php echo $type?>';
-				var introduction = $('#introduction').val();
+				var summarization = $('#summarization').val();
 				var api = Api.restArticles();
 				api.add(
 					{
@@ -85,17 +84,17 @@
 						content:content,
 						type:type,
 						image_url:window.image_url,
-						introduction:introduction
-					},success,failed,failed
+						summarization:summarization
+					},success,failed
 				);
 				function success()
 				{
 					alert('添加成功');
 					window.location.reload(true);
 				}
-				function failed()
+				function failed(status,error)
 				{
-					alert('保存失败,请重试!')
+					alert('保存失败,请重试!'+"\n"+error.getErrors());
 				}
 			};
 			$('#add_article').on('click',add_article);

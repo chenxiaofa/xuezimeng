@@ -9,6 +9,7 @@ $params = [
 
 
 $config = [
+    'language'=>'zh-CN',
     'id' => 'Web',
     'name'=>'学子梦培训',
     'basePath' => dirname(__DIR__),

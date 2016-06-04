@@ -24,8 +24,14 @@ if (empty($model))
 <div class="row">
 
 	<div class="col-sm-12">
-		<input id="title" placeholder="标题" style="width:1240px;padding:5px;margin:10px 0;" value="<?php echo htmlspecialchars($model->title);?>"/>
+		<input id="title" placeholder="标题" style="width:1240px;padding:5px;" value="<?php echo htmlspecialchars($model->title);?>"/>
 	</div>
+	<div class="col-sm-12">
+		<textarea id="summarization" placeholder="摘要" style="width:1240px;padding:5px;"><?php echo htmlspecialchars($model->summarization);?></textarea>
+	</div>
+	<?php if ($model->type == 2):
+		include 'includes/image_upload.php';
+	endif;?>
 	<div class="col-sm-12">
 		<textarea id="editor"><?php echo htmlspecialchars($model->content);?></textarea>
 	</div>
@@ -68,19 +74,28 @@ if (empty($model))
 
 				var title = $('#title').val();
 				var content = ue.getContent();
+				var summarization = $('#summarization').val();
 				var id = '<?php echo $model->id?>';
+				var data = {
+					'title':title,
+					content:content,
+					summarization:summarization
 
+				};
+				if (window.image_url)
+				{
+					data['image_url'] = window.image_url;
+				}
 				var api = Api.restArticles();
-				api.update(id,
-					{
-						'title':title,
-						content:content
-					},success
-				);
+				api.update(id,data,success,failed);
 				function success()
 				{
 					alert('添加成功');
 					window.close();
+				}
+				function failed(status,error)
+				{
+					alert('保存失败,请重试!'+"\n"+error.getErrors());
 				}
 			}
 			$('#save_article').on('click',update);

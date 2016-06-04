@@ -253,6 +253,7 @@
 						{
 							if (status === 422 || status === 423)
 							{
+								_self.xhr = this.xhr;
 								var resJson = {};
 								try{
 									resJson = $.parseJSON(payload);
@@ -262,7 +263,7 @@
 										'message':payload
 									}
 								}
-								return onFailed.call(_self,status,resJson.code,resJson.message);
+								return onFailed.call(_self,status,resJson);
 							}
 							return onError.call(_self,status,payload);//TODO 增加错误处理
 						},
@@ -276,6 +277,24 @@
 				);
 			};
 
+		};
+		var restError = function(errorObject)
+		{
+			this.getErrors = function()
+			{
+				var error = '';
+				$.each(errorObject,function(k,v){
+					if ('message' in v)
+					{
+						error += v['message'] + ';';
+					}
+				})
+				if (error.length == 0)
+				{
+					error = '位置错误';
+				}
+				return error;
+			}
 		};
 		var restApi = function(url)
 		{
@@ -314,11 +333,22 @@
 					}
 					_api.send();
 				},
-				'add':function(data,success,failed,error)
+				'add':function(data,success,failed)
 				{
 					var _api = new api(url,'POST',{},{},{}); 
-					if (typeof failed === 'function')_api.setFailedCallback(failed);
-					if (typeof error === 'function')_api.setFailedCallback(error);
+					if (typeof failed === 'function')_api.setFailedCallback(
+						function(status,errorObject)
+						{
+							//failed
+							failed.call(_api,status,new restError(errorObject));
+						}
+					);
+					if (typeof error === 'function')_api.setErrorCallback(
+						function()
+						{
+							failed.call(_api,status,new restError({}));
+						}
+					);
 					if (typeof success === 'function')
 					{
 						_api.setSuccessCallback(success);
@@ -326,11 +356,22 @@
 					$.each(data,function(k,v){_api.setPayload(k,v)});
 					_api.send();
 				},
-				update:function(id,data,success,failed,error)
+				update:function(id,data,success,failed)
 				{
 					var _api = new api(url+'/'+id,'PUT',{},{},{});
-					if (typeof failed === 'function')_api.setFailedCallback(failed);
-					if (typeof error === 'function')_api.setFailedCallback(error);
+					if (typeof failed === 'function')_api.setFailedCallback(
+							function(status,errorObject)
+							{
+								//failed
+								failed.call(_api,status,new restError(errorObject));
+							}
+					);
+					if (typeof error === 'function')_api.setErrorCallback(
+							function()
+							{
+								failed.call(_api,status,new restError({}));
+							}
+					);
 					if (typeof success === 'function')
 					{
 						_api.setSuccessCallback(success);

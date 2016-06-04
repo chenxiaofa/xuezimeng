@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\XssFilter;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -15,6 +16,8 @@ use yii\db\ActiveRecord;
  * @property integer $create_time
  * @property integer $update_time
  * @property integer $creator
+ * @property integer $summarization
+ * @property integer $image_url
  */
 class Articles extends ArticlesBase
 {
@@ -74,7 +77,7 @@ class Articles extends ArticlesBase
             ArticleDraft::addDraft($old->id,$old->title,$old->content);
         }
 
-
+        $this->content = (new XssFilter())->do_filter($this->content);
 
         $this->update_time = time();
 
@@ -100,4 +103,10 @@ class Articles extends ArticlesBase
     {
         return self::findAll(['type'=>self::TYPE_TOPIC,'status'=>1]);
     }
+
+    public static function getNewsTypeArticles()
+    {
+        return self::find()->limit(10)->where(['type'=>self::TYPE_NEWS,'status'=>1])->orderBy('id desc')->all();
+    }
+
 }

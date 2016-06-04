@@ -202,8 +202,15 @@ ul, .list.custom-list ul {
 	font: 14px/1.2em 'Roboto', sans-serif;
 	color:#878787;
 	text-transform: none;
-	display: inline;
 	position: relative;
+	display: inline-block;
+	width:100%;
+	border-bottom:1px solid #ddd;
+	padding:2px;
+	text-decoration: none;
+}
+.list.custom-list ul li a span {
+	float:right;
 }
 .thumbnail {
 	position: relative;

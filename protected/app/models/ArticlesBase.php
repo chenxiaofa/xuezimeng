@@ -15,6 +15,9 @@ use Yii;
  * @property integer $create_time
  * @property integer $update_time
  * @property integer $creator
+ * @property string $image_url
+ * @property string $summarization
+ * @property string $alias
  */
 class ArticlesBase extends \yii\db\ActiveRecord
 {
@@ -32,11 +35,13 @@ class ArticlesBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['title', 'content'], 'required'],
             [['content'], 'string'],
             [['type', 'status', 'create_time', 'update_time', 'creator'], 'integer'],
             [['title'], 'string', 'max' => 512],
             [['image_url'], 'string', 'max' => 128],
-            [['introduction'], 'string', 'max' => 2048],
+            [['summarization'], 'string', 'max' => 2048],
+            [['alias'], 'string', 'max' => 64]
         ];
     }
 
@@ -47,13 +52,16 @@ class ArticlesBase extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'id',
-            'title' => '标题',
-            'content' => '内容',
-            'type' => '1.站点模块,2.课程内容,3.动态',
-            'status' => '状态,0.禁用,1.启用',
+            'title' => '文章标题',
+            'content' => '文章内容',
+            'type' => '文章类型:1.首页模块,2.课程介绍,3.学子梦动态',
+            'status' => '状态:0.不显示,1.显示',
             'create_time' => '创建时间',
             'update_time' => '更新时间',
-            'creator' => '作者',
+            'creator' => '创建者',
+            'image_url' => '标题配图',
+            'summarization' => '摘要',
+            'alias' => 'url别名',
         ];
     }
 }

@@ -310,7 +310,7 @@
 					if (typeof error === 'function')_api.setFailedCallback(error);
 					if (typeof success === 'function')
 					{
-						success.call(_api);
+						_api.setSuccessCallback(success);
 					}
 					_api.send();
 				},
@@ -321,7 +321,7 @@
 					if (typeof error === 'function')_api.setFailedCallback(error);
 					if (typeof success === 'function')
 					{
-						success.call(_api);
+						_api.setSuccessCallback(success);
 					}
 					$.each(data,function(k,v){_api.setPayload(k,v)});
 					_api.send();
@@ -333,7 +333,7 @@
 					if (typeof error === 'function')_api.setFailedCallback(error);
 					if (typeof success === 'function')
 					{
-						success.call(_api);
+						_api.setSuccessCallback(success);
 					}
 					$.each(data,function(k,v){_api.setPayload(k,v)});
 					_api.send();

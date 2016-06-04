@@ -921,7 +921,8 @@ content: '';
 width: 100%;
 height: initial;
 /*background: rgba(251, 36, 36, 0); */
-background: rgba(16,3,3,0.3);
+/*background: rgba(16,3,3,0.3);*/
+background: rgba(16,3,3,0);
 z-index: 99999;
 position: absolute;
 height: inherit;

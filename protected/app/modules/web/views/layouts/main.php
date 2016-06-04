@@ -1,4 +1,6 @@
 <?php
+use app\models\Articles;
+
 $currPage = \Yii::$app->controller->action->id;
 ?>
 <!DOCTYPE html>
@@ -29,21 +31,33 @@ $currPage = \Yii::$app->controller->action->id;
         <div class="navbar-header">
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="/index">
+            <a class="navbar-brand" href="/index.html">
                 <img src="/assets/images/logo.png" alt="学子梦培训"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right mainNav">
 <!--            <ul class="nav navbar-nav pull-left mainNav">-->
-                <li class="<?php if ($currPage === 'index') echo "active";?>"><a href="/">首页</a></li>
-                <li class="<?php if ($currPage === 'preferential') echo "active";?>"><a href="/preferential">最新课程</a></li>
-                <li class="<?php if ($currPage === '#') echo "active";?>"><a href="#">名师风采</a></li>
-                <li class="<?php if ($currPage === '#') echo "active";?>"><a href="#">学生园地</a></li>
-                <li class="<?php if ($currPage === '#') echo "active";?>"><a href="#">报名咨询</a></li>
+                <li class="<?php if ($currPage === 'index') echo "active";?>"><a href="/index.html">首页</a></li>
+<!--                <li class="--><?php //if ($currPage === 'preferential') echo "active";?><!--"><a href="/preferential">最新课程</a></li>-->
+<!--                <li class="--><?php //if ($currPage === '#') echo "active";?><!--"><a href="#">名师风采</a></li>-->
+<!--                <li class="--><?php //if ($currPage === '#') echo "active";?><!--"><a href="#">学生园地</a></li>-->
+<!--                <li class="--><?php //if ($currPage === '#') echo "active";?><!--"><a href="#">报名咨询</a></li>-->
 <!--                <li class="--><?php //if ($currPage === 'courses') echo "active";?><!--"><a href="/courses">课程</a></li>-->
 <!--                <li class="--><?php //if ($currPage === 'price') echo "active";?><!--"><a href="/price">价格</a></li>-->
 <!--                <li class="--><?php //if ($currPage === 'contact') echo "active";?><!--"><a href="/contact">联系我们</a></li>-->
-                <li class="<?php if ($currPage === 'about') echo "active";?>"><a href="/about">关于学子梦</a></li>
+<!--                <li class="--><?php //if ($currPage === 'about') echo "active";?><!--"><a href="/about">关于学子梦</a></li>-->
+                <?php
+                /** @var Articles $model */
+                foreach(Articles::getModuleTypeArticles() as $model)
+                    {
+                        $currUrl = strtolower(explode('?',$_SERVER['REQUEST_URI'])[0]);
+                        $url = '/articles/'.$model->id.'.html'
+                ?>
+                        <li class="<?php if($currUrl == $url)echo 'active'; ?>"><a href="<?php echo $url;?>"><?php echo $model->title?></a></li>
+                <?php
+                    }
+                ?>
+
             </ul>
         </div>
         <!--/.nav-collapse -->

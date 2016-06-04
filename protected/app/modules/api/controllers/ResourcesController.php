@@ -10,6 +10,7 @@
 namespace app\modules\api\controllers;
 
 
+use app\managers\ResourceManager;
 use app\models\Resources;
 use app\modules\api\validators\ResourceUploadValidator;
 
@@ -22,7 +23,7 @@ class ResourcesController extends ApiController
 		{
 			$v->T();
 		}
-		return Resources::createNewResource($v->name,$v->tmp_name);
+		return ResourceManager::getInstance()->addResource($v->name,$v->tmp_name);
 	}
 
 }

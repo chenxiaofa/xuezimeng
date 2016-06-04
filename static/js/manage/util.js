@@ -113,11 +113,17 @@ var Util = {};
             {
                 getData(option.page,option.page_size);
             }
+            function getApi()
+            {
+                return api;
+            }
             reload();
             this.reload = reload;
+            this.getApi = getApi;
         };
         var restTable = function(api,option)
         {
+            var _self = this;
             option = $.extend(
                 {
                     'header':[],
@@ -159,7 +165,7 @@ var Util = {};
                             var content = data[d.key];
                             if (typeof d.format  === 'function')
                             {
-                                content = d.format.call(data,content,data);
+                                content = d.format.call(_self,content,data);
                             }
                             td.append(content);
                         }
@@ -167,9 +173,8 @@ var Util = {};
                     }
                 );
                 return tr;
-            }
-            var _restBlock = new restBlock(api,option);;
-            return _restBlock;
+            };
+            return new restBlock(api,option);
         };
         var imageGallery = function(option)
         {
@@ -179,6 +184,7 @@ var Util = {};
                     'delete':true,
                     'fixed_condition':{'type':0},
                     'primary_key':'id',
+                    'rowMaker':rowMaker
                 },option
             );
 
@@ -191,7 +197,7 @@ var Util = {};
             };
 
 
-            option.rowMaker = function(data)
+            function rowMaker (data)
             {
                 var ele = $(
                     '<li>' +
@@ -363,9 +369,18 @@ var Util = {};
 
         function openSubWindow(url)
         {
-            function CenterPopup(url)
-            {
+            var CenterPopup = function (url, target, w, h, scroll, resiz) {
+                if (w < 1 && h < 1) {
+                    // 自动计算宽度和高度
+                    w = screen.width * w;
+                    h = screen.height * h;
+                }
 
+                var winl = (screen.width - w) / 2;
+                var wint = (screen.height - h) / 2;
+                var winprops = 'height=' + h + ',width=' + w + ',top=' + wint + ',left=' + winl + ',scrollbars=' + scroll + ',resizable=' + resiz + ', toolbars=false, status=false, menubar=false';
+                var win = window.open(url, Math.random(), winprops);
+                return win;
             }
             if (url.match(/\?/))
             {
@@ -375,7 +390,7 @@ var Util = {};
             {
                 url = url + '?sub-window=1';
             }
-            return CenterPopup(url);
+            return CenterPopup(url, null, 0.8, 0.7, "yes", "yes");
         }
 
         $.extend(g,{'RestTable':restTable,'openSubWindow':openSubWindow,'restBlock':restBlock,'imageGallery':imageGallery});

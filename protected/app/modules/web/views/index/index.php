@@ -2,8 +2,6 @@
 <!-- Header -->
 <header id="head">
     <div class="container">
-
-
         <div class="fluid_container">
             <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
                 <div data-thumb="assets/images/slides/thumbs/b1.jpg" data-src="assets/images/slides/b1.jpg">
@@ -22,49 +20,27 @@
     <div class="container">
         <h2><span>课程全面覆盖</span></h2>
         <div class="row">
-
+        <?php
+        /** @var Articles $model */
+        use app\models\Articles;
+        foreach(Articles::getTopicTypeArticles() as $model):?>
             <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="newsBox">
-                    <div class="thumbnail">
-                        <figure><img src="assets/images/news2.jpg" alt=""></figure>
-                        <div class="caption maxheight2">
-                            <div class="box_inner">
-                                <div class="box">
-                                    <p class="title"><h5>小学</h5></p>
+                <a href="/articles/<?php echo $model->id?>.html" style="text-decoration: none;">
+                    <div class="newsBox">
+                        <div class="thumbnail">
+                            <figure><img src="<?php echo $model->image_url?>" alt=""></figure>
+                            <div class="caption maxheight2">
+                                <div class="box_inner">
+                                    <div class="box">
+                                        <p class="title"><h5><?php echo $model->title?></h5></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="newsBox">
-                    <div class="thumbnail">
-                        <figure><img src="assets/images/news3.jpg" alt=""></figure>
-                        <div class="caption maxheight2">
-                            <div class="box_inner">
-                                <div class="box">
-                                    <p class="title"><h5>初中</h5></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="newsBox">
-                    <div class="thumbnail">
-                        <figure><img src="assets/images/news4.jpg" alt=""></figure>
-                        <div class="caption maxheight2">
-                            <div class="box_inner">
-                                <div class="box">
-                                    <p class="title"><h5>高中</h5></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <?php endforeach;?>
         </div>
     </div>
 </section>

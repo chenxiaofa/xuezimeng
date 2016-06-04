@@ -30,25 +30,23 @@ window.UEDITOR_HOME_URL = "/static/umeditor/";
         UEDITOR_HOME_URL: URL
 
         // 服务器统一请求接口路径
-        , serverUrl: "/php/controller.php"
+        , serverUrl: "/manage/ueditor/index"
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
         , toolbars: [[
             'fullscreen',
-			//'source','|',
+			'source','|',
 			'undo', 'redo', '|',
-            'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+            'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'blockquote', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', '|',
             'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
             'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
-            'directionalityltr', 'directionalityrtl', 'indent', '|',
-            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',
             'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
-            'simpleupload',  'scrawl', 'insertvideo',   'pagebreak', 'template', 'background', '|',
+            'simpleupload', 'insertvideo',   'pagebreak', 'template', '|',
             'horizontal',
-			'spechars', 'snapscreen', 'wordimage', '|',
+			'spechars', '|',
             'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols',
-			'|',
-			'preview'
+
         ]]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{
@@ -85,7 +83,7 @@ window.UEDITOR_HOME_URL = "/static/umeditor/";
         //,focus:false //初始化时，是否让编辑器获得焦点true或false
 
         //如果自定义，最好给p标签如下的行高，要不输入中文时，会有跳动感
-        //,initialStyle:'p{line-height:1em}'//编辑器层级的基数,可以用来改变字体等
+        ,initialStyle:'p{line-height:1em} body{background:rgba(0,0,0,0)!important;}'//编辑器层级的基数,可以用来改变字体等
         
         //,iframeCssUrl: URL + '/themes/iframe.css' //给编辑区域的iframe引入一个css文件
 
@@ -93,7 +91,7 @@ window.UEDITOR_HOME_URL = "/static/umeditor/";
         //首行缩进距离,默认是2em
         //,indentValue:'2em'
 
-        //,initialFrameWidth:1000  //初始化编辑器宽度,默认1000
+        ,initialFrameWidth:1240  //初始化编辑器宽度,默认1000
         ,initialFrameHeight:600  //初始化编辑器高度,默认320
 
         //,readonly : false //编辑器初始化结束后,编辑区域是否是只读的，默认是false
@@ -356,7 +354,7 @@ window.UEDITOR_HOME_URL = "/static/umeditor/";
 
         //默认过滤规则相关配置项目
         //,disabledTableInTable:true  //禁止表格嵌套
-        //,allowDivTransToP:true      //允许进入编辑器的div标签自动变成p标签
+        ,allowDivTransToP:false      //允许进入编辑器的div标签自动变成p标签
         //,rgb2Hex:true               //默认产出的数据中的color自动从rgb格式变成16进制格式
 
 		// xss 过滤是否开启,inserthtml等操作

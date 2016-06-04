@@ -34,7 +34,9 @@ class ArticlesBase extends \yii\db\ActiveRecord
         return [
             [['content'], 'string'],
             [['type', 'status', 'create_time', 'update_time', 'creator'], 'integer'],
-            [['title'], 'string', 'max' => 512]
+            [['title'], 'string', 'max' => 512],
+            [['image_url'], 'string', 'max' => 128],
+            [['introduction'], 'string', 'max' => 2048],
         ];
     }
 

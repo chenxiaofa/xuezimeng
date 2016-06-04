@@ -15,7 +15,11 @@ class ArticlesController extends \yii\web\Controller
 {
     public function actionView($aid)
     {
-        $model = Articles::findOne(['id'=>1]);
+        $model = Articles::findOne(['id'=>$aid]);
+        if (!($model))
+        {
+            return \Yii::$app->response->redirect('/index.html');
+        }
         return $this->render('view',['model'=>$model]);
     }
 }

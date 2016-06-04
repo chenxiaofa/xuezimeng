@@ -29,6 +29,13 @@ $config = [
                 ],
             ],
         ],
+        'request' => [
+            'cookieValidationKey' => 'web-push-portal',
+            'enableCsrfValidation'=>false,
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
+        ],
     ],
     'params'=>$params,
     'modules'=>[],

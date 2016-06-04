@@ -82,27 +82,8 @@ class Resources extends \yii\db\ActiveRecord
 
     public static function getSavePath($name)
     {
-        $path = '/static/images/uploads/'.date('Y').'/'.date('m').'/'.date('d').'/';
+//        $path = '/uploads/'.date('Y').'/'.date('m').'/'.date('d').'/';
+        $path = '/uploads/';
         return $path;
-    }
-
-    public static function createNewResource($name,$file)
-    {
-        $path = self::getSavePath($name);
-        $newFilename = self::getNewFileName($name);
-        $savePath = \Yii::getAlias('@webroot').$path;
-        if (!file_exists($savePath))
-        {
-            @mkdir($savePath,644,true);
-        }
-        @move_uploaded_file($file,$savePath.$newFilename);
-        $model = new self();
-        $model->create_time = time();
-        $model->type = self::RESOURCE_TYPE_IMAGE;
-        $model->name = $name;
-        $model->url = $path.$newFilename;
-        $model->owner = \Yii::$app->user->identity->id;
-        $model->save();
-        return $model;
     }
 }

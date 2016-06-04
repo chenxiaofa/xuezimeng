@@ -14,13 +14,6 @@ $components = [
     'authManager' => [
         'class' => 'app\rbac\RbacManager',
     ],
-    'request' => [
-        'cookieValidationKey' => 'web-push-portal',
-        'enableCsrfValidation'=>false,
-        'parsers' => [
-            'application/json' => 'yii\web\JsonParser',
-        ],
-    ],
     'user' => [
         'identityClass' => 'app\models\Users',
         'enableAutoLogin' => false,

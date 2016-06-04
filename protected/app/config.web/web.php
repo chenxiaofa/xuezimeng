@@ -4,13 +4,13 @@ $routes = [
 
     //PC端
     'GET /'=>'web/index/index',
-    'GET /index'=>'web/index/index',
+    'GET /index.html'=>'web/index/index',
     'GET /about'=>'web/index/about',
     'GET /courses'=>'web/index/courses',
     'GET /contact'=>'web/index/contact',
     'GET /price'=>'web/index/price',
     'GET /preferential'=>'web/index/preferential',
-    'GET /articles/view/<aid:\d+>.html'=>'/web/articles/view',
+    'GET /articles/<aid:\d+>.html'=>'/web/articles/view',
 
 
     //移动端
@@ -52,7 +52,7 @@ $config['modules'] = array_merge($config['modules'],[
 ]);
 
 
-if (0)
+if (01)
 {
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module',

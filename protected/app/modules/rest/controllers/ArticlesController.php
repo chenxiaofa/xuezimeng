@@ -22,7 +22,7 @@ class ArticlesController extends ActiveController
     public function addCondition($query)
     {
         $r = \Yii::$app->request;
-        $query->orderBy('id desc');
+        $query->orderBy('id asc');
         if (($type = $r->get('type',false)) !== false)
         {
             $query->andWhere('type = :type',[':type'=>$type]);

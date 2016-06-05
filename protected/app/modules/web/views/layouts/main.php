@@ -8,6 +8,8 @@ $currPage = \Yii::$app->controller->action->id;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="学子梦,学子梦培训,赣州学子梦,赣州培训"/>
+    <meta name="description" content="赣州学子梦是一群具有教育情怀的本地学子创建的教育培训机构，致力帮助更多学子更好地实现升学梦" />
     <title><?php echo \Yii::$app->name;?></title>
     <link rel="favicon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
